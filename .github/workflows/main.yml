@@ -54,6 +54,13 @@ jobs:
           GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
         run: echo $GOOGLE_SERVICES_JSON | base64 -di > ./android/app/google-services.json  
         
+      - name: Create firebase_options.dart
+        run: cat /home/runner/work/Makeathon5_app/Makeathon5_app/lib/firebase_options.dart | base64  
+      
+      - name: Putting data into firebase_options.dart
+        env:
+            FIREBASE_OPTIONS: ${{ secrets.FIREBASE_OPTIONS }}
+        run: echo $FIREBASE_OPTIONS | base64 -di > ./lib/firebase_options.dart  
 
       # Runs a set of commands using the runners shell
       - name: Start release build
