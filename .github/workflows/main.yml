@@ -5,9 +5,9 @@ name: Build Test
 on:
   # 2
   push:
-    branches: [ "master", "main"]
+    branches: [ "master", "main", "dev"]
   pull_request:
-    branches: [ "master", "main"]
+    branches: [ "master", "main", "dev"]
 
   # 3
   workflow_dispatch:
