@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "849549790181",
+    "firebase_url": "https://mlsc-app-default-rtdb.firebaseio.com",
+    "project_id": "mlsc-app",
+    "storage_bucket": "mlsc-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849549790181:android:4df0179b966421c5c1fd0c",
+        "android_client_info": {
+          "package_name": "com.example.makeathon5_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849549790181-gvna036r3sfiq711t7693dk59vsk15r0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm_ngRGI46PxF4hx212-dtKuLvVPvofIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849549790181-gvna036r3sfiq711t7693dk59vsk15r0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "849549790181-4bnmac4e933jnmoaanu6k4dpqv0c7td7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mlscApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:849549790181:android:445e3d65177912cec1fd0c",
+        "android_client_info": {
+          "package_name": "com.example.mlsc_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "849549790181-0fce8clv7rl4k4bfpsicfao5kri72s3s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mlsc_app",
+            "certificate_hash": "9f09222d58c8315f47aa8d807c92efcde29cd6fe"
+          }
+        },
+        {
+          "client_id": "849549790181-s3o2ptq5hhmto8hll5sl6kthqdlrpelg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mlsc_app",
+            "certificate_hash": "8f04a7ff7f396d04febe57637398be725cb42401"
+          }
+        },
+        {
+          "client_id": "849549790181-gvna036r3sfiq711t7693dk59vsk15r0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCm_ngRGI46PxF4hx212-dtKuLvVPvofIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "849549790181-gvna036r3sfiq711t7693dk59vsk15r0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "849549790181-4bnmac4e933jnmoaanu6k4dpqv0c7td7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mlscApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
