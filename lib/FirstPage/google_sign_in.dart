@@ -5,9 +5,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+GoogleSignIn? googleSignIn;
+
 class Authentication {
   Future<UserCredential> signInWithGoogle() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    googleSignIn = GoogleSignIn();
+    final GoogleSignInAccount? googleUser = await googleSignIn!.signIn();
 
     final GoogleSignInAuthentication? googleAuth =
         await googleUser?.authentication;
@@ -16,6 +19,7 @@ class Authentication {
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
+
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 }
@@ -94,6 +98,7 @@ class SignInButton extends StatelessWidget {
 
   Future<void> _signOut() async {
     await FirebaseAuth.instance.signOut();
+    googleSignIn!.disconnect();
     Fluttertoast.showToast(msg: 'Please login with your thapar.edu account');
   }
 

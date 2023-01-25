@@ -7,6 +7,13 @@ import 'package:firebase_database/firebase_database.dart';
 
 void main() {
   runApp(const MyApp());
+  initFirebase();
+}
+
+Future<void> initFirebase() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class MyApp extends StatelessWidget {

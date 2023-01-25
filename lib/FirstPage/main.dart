@@ -18,7 +18,9 @@ class _FirstPageState extends State<FirstPage> {
             Align(
               alignment: Alignment.topLeft,
               child: Padding(
-                padding: EdgeInsets.fromLTRB(20, 30, 0, 10),
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width / 20,
+                    top: MediaQuery.of(context).size.height / 30),
                 child: Image.asset(
                   'Assets/MLSClogo.png',
                 ),
@@ -33,7 +35,8 @@ class _FirstPageState extends State<FirstPage> {
                   fit: BoxFit.fill,
                 ),
                 Container(
-                  transform: Matrix4.translationValues(0, -60, 0),
+                  transform: Matrix4.translationValues(
+                      0, -MediaQuery.of(context).size.height / 10, 0),
                   alignment: Alignment.topRight,
                   child: Image.asset(
                     'Assets/vector.png',
