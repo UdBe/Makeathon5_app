@@ -15,15 +15,14 @@ class _FirstPageState extends State<FirstPage> {
       body: SafeArea(
         child: Stack(
           children: [
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(20, 30, 0, 10),
-                  child: Image.asset(
-                    'Assets/MLSClogo.png',
-                  ),
-                )
-              ],
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(20, 30, 0, 10),
+                child: Image.asset(
+                  'Assets/MLSClogo.png',
+                ),
+              ),
             ),
             Column(
               children: [
@@ -37,37 +36,47 @@ class _FirstPageState extends State<FirstPage> {
                   transform: Matrix4.translationValues(0, -60, 0),
                   alignment: Alignment.topRight,
                   child: Image.asset(
-                    'Assets/Vector.png',
+                    'Assets/vector.png',
                   ),
                 ),
-                Container(
-                  transform: Matrix4.translationValues(30, -30, 0),
-                  alignment: AlignmentDirectional.topStart,
-                  child: Text(
-                    'Lorem Ipsem',
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 22,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Spacer(),
-                Container(
-                  transform: Matrix4.translationValues(30, -30, 0),
-                  alignment: AlignmentDirectional.topStart,
-                  child: Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontSize: 15,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Spacer(),
-                SignInButton(),
               ],
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(30, 0, 30, 50),
+              child: Column(
+                children: [
+                  Spacer(),
+                  Container(
+                    margin: EdgeInsets.only(left: 8),
+                    alignment: AlignmentDirectional.topStart,
+                    child: Text(
+                      'Lorem Ipsem',
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 22,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 15, left: 8),
+                    alignment: AlignmentDirectional.topStart,
+                    child: Text(
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 15,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  SignInButton(),
+                ],
+              ),
             ),
           ],
         ),

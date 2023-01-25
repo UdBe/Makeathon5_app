@@ -33,7 +33,7 @@ class SignInButton extends StatelessWidget {
       Container(
         width: double.infinity,
         child: Container(
-          margin: EdgeInsets.fromLTRB(20, 10, 20, 30),
+          // margin: EdgeInsets.fromLTRB(0, 10, 20, 50),
           width: double.infinity,
           child: ElevatedButton(
             style: ButtonStyle(
