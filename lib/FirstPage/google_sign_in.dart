@@ -73,16 +73,13 @@ class SignInButton extends StatelessWidget {
                       height: 40,
                     ),
                     Spacer(),
-                    Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Text(
-                        'Sign in with Google',
-                        style: TextStyle(
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 34, 99, 192),
-                          fontSize: 18,
-                        ),
+                    Text(
+                      'Sign in with Google',
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 34, 99, 192),
+                        fontSize: 18,
                       ),
                     ),
                     Spacer(),
