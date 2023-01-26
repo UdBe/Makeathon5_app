@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:makeathon5_app/CheckinPage/main.dart';
 
 GoogleSignIn? googleSignIn;
 
@@ -51,14 +52,14 @@ class SignInButton extends StatelessWidget {
                     _signOut();
                   } else {
                     updateOnDatabase(user);
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: ((context) {
-                    //       return SecondPage(user);
-                    //     }),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) {
+                          return CheckinPage(user);
+                        }),
+                      ),
+                    );
                   }
                 },
               );

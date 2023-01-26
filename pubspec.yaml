@@ -88,7 +88,10 @@ flutter:
   fonts:
     - family: Inter
       fonts:
-        - asset: fonts/Inter.ttf
+        - asset: Fonts/Inter.ttf
+    - family: JejuGothic
+      fonts:
+        - asset: Fonts/jejugothic.ttf    
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
