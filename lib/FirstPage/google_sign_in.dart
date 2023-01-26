@@ -103,6 +103,6 @@ class SignInButton extends StatelessWidget {
   Future<void> updateOnDatabase(User user) async {
     final databaseRef =
         FirebaseDatabase.instance.ref().child('Users').child(user.uid);
-    databaseRef.child('Name').set(user.providerData[0].displayName);
+    databaseRef.child('name').set(user.providerData[0].displayName);
   }
 }
