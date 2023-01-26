@@ -69,7 +69,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '962819408926',
     projectId: 'make5app-dummy',
     storageBucket: 'make5app-dummy.appspot.com',
-    iosClientId: '962819408926-fjvgqgmjj1n1rfjshk4dq1crfdqmrh7r.apps.googleusercontent.com',
+    iosClientId:
+        '962819408926-fjvgqgmjj1n1rfjshk4dq1crfdqmrh7r.apps.googleusercontent.com',
     iosBundleId: 'com.example.makeathon5App',
   );
 }
