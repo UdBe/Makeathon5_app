@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "962819408926",
+    "project_id": "make5app-dummy",
+    "storage_bucket": "make5app-dummy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962819408926:android:09dd55ce0b250e83181a0f",
+        "android_client_info": {
+          "package_name": "com.example.makeathon5_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "962819408926-d7i5l7m96b3utr44gul3nvk5l04v02nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMF4heZmdjWorNFjCLIXayNr1huxT9oYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "962819408926-d7i5l7m96b3utr44gul3nvk5l04v02nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
