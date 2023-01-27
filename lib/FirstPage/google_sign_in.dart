@@ -45,23 +45,13 @@ class SignInButton extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(
                     Color.fromARGB(255, 216, 217, 216))),
             onPressed: () {
-              Authentication().signInWithGoogle().then(
-                (value) {
-                  User? user = value.user;
-                  if (!user!.providerData[0].email!.endsWith('thapar.edu')) {
-                    _signOut();
-                  } else {
-                    updateOnDatabase(user);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) {
-                          return CheckinPage(user);
-                        }),
-                      ),
-                    );
-                  }
-                },
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) {
+                    return CheckinPage();
+                  }),
+                ),
               );
             },
             child: Container(

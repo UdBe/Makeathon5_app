@@ -8,8 +8,6 @@ import 'package:makeathon5_app/CheckinPage/upload_button.dart';
 class CheckinPage extends StatefulWidget {
   User? user;
 
-  CheckinPage(this.user);
-
   @override
   _CheckinPageState createState() => _CheckinPageState();
 }
