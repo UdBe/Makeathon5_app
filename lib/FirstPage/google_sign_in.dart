@@ -65,7 +65,7 @@ class SignInButton extends StatelessWidget {
                     ),
                     Spacer(),
                     Text(
-                      'Sign in with Google',
+                      'Skip Sign-in',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.bold,
