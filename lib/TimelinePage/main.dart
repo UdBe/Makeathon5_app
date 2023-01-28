@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'expandable_cards.dart';
 
-class HomePage extends StatefulWidget {
+class TimelinePage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _TimelinePageState createState() => _TimelinePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _TimelinePageState extends State<TimelinePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
