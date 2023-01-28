@@ -31,9 +31,7 @@ class _HomePageState extends State<HomePage> {
                   // height: MediaQuery.of(context).size.height / 5.5,
                   fit: BoxFit.fill,
                 ),
-                Spacer(),
                 ExpandableCards(),
-                Spacer(),
               ],
             ),
             Padding(
