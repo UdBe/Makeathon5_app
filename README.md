@@ -26,12 +26,13 @@ This section provides all the details needed to start contributing to this proje
 
 - Open the project in your IDE
 
-- Initialise Firebase: 
-  - Open your firebase console and create a new project
-  - Activate firebase using your terminal ```dart pub global activate flutterfire_cli```
-  - Run ```flutterfire configure --project=[Project-ID]``` from your project directory, (Replace [Project-ID] with the project ID from your firebase project or directly copy the command with the project ID from your Firebase console.)
-  - If asked to select platforms for configuring Firebase, select only Android & IOS
+~~Initialise Firebase:~~
+  ~~- Open your firebase console and create a new project~~
+  ~~- Activate firebase using your terminal ```dart pub global activate flutterfire_cli```~~
+  ~~- Run ```flutterfire configure --project=[Project-ID]``` from your project directory, (Replace [Project-ID] with the project ID from your~~ ~~firebase project or directly copy the command with the project ID from your Firebase console.)~~
+  ~~- If asked to select platforms for configuring Firebase, select only Android & IOS~~
 
+- We have connected a dummy firebase database so you do not have to configure firebase anymore.
 - run ```flutter pub get``` 
 
 Your project is now all set-up in your local machine!!
