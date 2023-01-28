@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class TopBar extends StatelessWidget {
+  static double? height;
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height / 3;
     return Stack(
       children: [
         Image.asset(
           'Assets/vector2.png',
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height / 3,
+          height: height,
           fit: BoxFit.fill,
         ),
         Column(

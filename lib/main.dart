@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 //Firebase Packages
-import 'package:firebase_core/firebase_core.dart';
-import 'package:makeathon5_app/AnnouncementsPage/announcement.dart';
-import 'package:makeathon5_app/AnnouncementsPage/main.dart';
 import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:makeathon5_app/AnnouncementsPage/main.dart';
 
 void main() {
   runApp(const MyApp());
