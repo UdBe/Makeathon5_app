@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "962819408926",
+    "firebase_url": "https://make5app-dummy-default-rtdb.firebaseio.com",
     "project_id": "make5app-dummy",
     "storage_bucket": "make5app-dummy.appspot.com"
   },
@@ -14,7 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "962819408926-d7i5l7m96b3utr44gul3nvk5l04v02nq.apps.googleusercontent.com",
+          "client_id": "962819408926-s6p8991knv2traif6cempkub8vkn1k2h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.makeathon5_app",
+            "certificate_hash": "9f09222d58c8315f47aa8d807c92efcde29cd6fe"
+          }
+        },
+        {
+          "client_id": "962819408926-88ci77f7607hpjsadk15psg60medv7uc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +36,16 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "962819408926-d7i5l7m96b3utr44gul3nvk5l04v02nq.apps.googleusercontent.com",
+            
+              "client_id": "962819408926-88ci77f7607hpjsadk15psg60medv7uc.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "962819408926-fjvgqgmjj1n1rfjshk4dq1crfdqmrh7r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.makeathon5App"
+              }
             }
           ]
         }
@@ -37,3 +54,4 @@
   ],
   "configuration_version": "1"
 }
+

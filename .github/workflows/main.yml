@@ -50,21 +50,21 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
         
-      - name: Create google-services.json
-        run: cat /home/runner/work/Makeathon5_app/Makeathon5_app/app/google-services.json | base64
+#       - name: Create google-services.json
+#         run: cat /home/runner/work/Makeathon5_app/Makeathon5_app/app/google-services.json | base64
    
-      - name: Putting data into google-services.json
-        env:
-          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
-        run: echo $GOOGLE_SERVICES_JSON | base64 -di > ./android/app/google-services.json  
+#       - name: Putting data into google-services.json
+#         env:
+#           GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+#         run: echo $GOOGLE_SERVICES_JSON | base64 -di > ./android/app/google-services.json  
         
-      - name: Create firebase_options.dart
-        run: cat /home/runner/work/Makeathon5_app/Makeathon5_app/lib/firebase_options.dart | base64  
+#       - name: Create firebase_options.dart
+#         run: cat /home/runner/work/Makeathon5_app/Makeathon5_app/lib/firebase_options.dart | base64  
       
-      - name: Putting data into firebase_options.dart
-        env:
-            FIREBASE_OPTIONS: ${{ secrets.FIREBASE_OPTIONS }}
-        run: echo $FIREBASE_OPTIONS | base64 -di > ./lib/firebase_options.dart  
+#       - name: Putting data into firebase_options.dart
+#         env:
+#             FIREBASE_OPTIONS: ${{ secrets.FIREBASE_OPTIONS }}
+#         run: echo $FIREBASE_OPTIONS | base64 -di > ./lib/firebase_options.dart  
 
       # Runs a set of commands using the runners shell
       - name: Start release build
