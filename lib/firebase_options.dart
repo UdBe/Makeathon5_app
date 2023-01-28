@@ -52,6 +52,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '962819408926',
     projectId: 'make5app-dummy',
     authDomain: 'make5app-dummy.firebaseapp.com',
+    databaseURL: 'https://make5app-dummy-default-rtdb.firebaseio.com',
     storageBucket: 'make5app-dummy.appspot.com',
   );
 
@@ -60,6 +61,7 @@ class DefaultFirebaseOptions {
     appId: '1:962819408926:android:09dd55ce0b250e83181a0f',
     messagingSenderId: '962819408926',
     projectId: 'make5app-dummy',
+    databaseURL: 'https://make5app-dummy-default-rtdb.firebaseio.com',
     storageBucket: 'make5app-dummy.appspot.com',
   );
 
@@ -68,9 +70,10 @@ class DefaultFirebaseOptions {
     appId: '1:962819408926:ios:c4d8255eee42004c181a0f',
     messagingSenderId: '962819408926',
     projectId: 'make5app-dummy',
+    databaseURL: 'https://make5app-dummy-default-rtdb.firebaseio.com',
     storageBucket: 'make5app-dummy.appspot.com',
-    iosClientId:
-        '962819408926-fjvgqgmjj1n1rfjshk4dq1crfdqmrh7r.apps.googleusercontent.com',
+    androidClientId: '962819408926-s6p8991knv2traif6cempkub8vkn1k2h.apps.googleusercontent.com',
+    iosClientId: '962819408926-fjvgqgmjj1n1rfjshk4dq1crfdqmrh7r.apps.googleusercontent.com',
     iosBundleId: 'com.example.makeathon5App',
   );
 }
