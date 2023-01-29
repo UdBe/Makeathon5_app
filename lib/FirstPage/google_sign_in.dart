@@ -49,6 +49,7 @@ class SignInButton extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: ((context) {
+                    //TODO: Change to HomePage()
                     return CheckinPage();
                   }),
                 ),

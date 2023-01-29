@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //TODO: change this to firstpage
       home: FirstPage(),
     );
   }
