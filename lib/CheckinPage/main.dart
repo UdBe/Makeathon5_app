@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:makeathon5_app/FirstPage/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:makeathon5_app/CheckinPage/checkin_button.dart';
@@ -74,9 +74,17 @@ class _CheckinPageState extends State<CheckinPage> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      'Assets/back_arrow.png',
-                      scale: 1.25,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => FirstPage()),
+                        );
+                      },
+                      child: Image.asset(
+                        'Assets/back_arrow.png',
+                        scale: 1.25,
+                      ),
                     ),
                     Spacer(),
                     Image.asset(
