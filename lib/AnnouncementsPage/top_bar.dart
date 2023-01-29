@@ -4,7 +4,7 @@ class TopBar extends StatelessWidget {
   static double? height;
   @override
   Widget build(BuildContext context) {
-    height = MediaQuery.of(context).size.height / 3;
+    height = MediaQuery.of(context).size.height / 3.5;
     return Stack(
       children: [
         Image.asset(
@@ -19,16 +19,17 @@ class TopBar extends StatelessWidget {
               child: Image.asset(
                 'Assets/vector7.png',
                 width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height / 5.5,
                 fit: BoxFit.fill,
               ),
             ),
             Container(
               transform: Matrix4.translationValues(
-                  0, -MediaQuery.of(context).size.height / 8, 0),
+                  0, -MediaQuery.of(context).size.height / 13, 0),
               child: Row(
                 children: [
                   SizedBox(
-                    width: 50,
+                    width: MediaQuery.of(context).size.width / 15,
                   ),
                   Text(
                     "Announcements",

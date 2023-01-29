@@ -14,6 +14,7 @@ class AnnouncementsPage extends StatefulWidget {
 
 class _AnnouncementsPage extends State<AnnouncementsPage> {
   var announcements = <Announcement>[];
+  bool buffering = true;
 
   @override
   void initState() {
@@ -27,13 +28,31 @@ class _AnnouncementsPage extends State<AnnouncementsPage> {
       body: Stack(
         children: [
           TopBar(),
+          Visibility(
+            visible: buffering,
+            child: Container(
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height / 3.5),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Spacer(),
+                  Row(
+                    children: [Spacer(), CircularProgressIndicator(), Spacer()],
+                  ),
+                  Spacer()
+                ],
+              ),
+            ),
+          ),
           Container(
             margin:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height / 3),
+                EdgeInsets.only(top: MediaQuery.of(context).size.height / 3.5),
             child: ListView.builder(
               padding: EdgeInsets.all(15),
               itemBuilder: (context, position) {
-                return AnnouncementCard(announcements[position]);
+                return AnnouncementCard(
+                    announcements[announcements.length - position - 1]);
               },
               itemCount: announcements.length,
             ),
@@ -57,6 +76,7 @@ class _AnnouncementsPage extends State<AnnouncementsPage> {
       setState(
         () {
           announcements.add(announcement);
+          buffering = false;
         },
       );
     });

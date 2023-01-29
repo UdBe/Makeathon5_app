@@ -25,6 +25,6 @@ class Announcement {
   Announcement({this.body, this.formattedDateTime}) {
     dateTime = dateFormat.parse(formattedDateTime!);
     date = "${dateTime!.day} ${months[dateTime!.month]}";
-    time = DateFormat("h mm a").format(dateTime!);
+    time = DateFormat("hh:mm a").format(dateTime!);
   }
 }

@@ -16,7 +16,7 @@ class AnnouncementCard extends StatelessWidget {
       child: Material(
         child: InkWell(
           splashFactory: InkRipple.splashFactory,
-          splashColor: Colors.grey,
+          splashColor: Color.fromARGB(66, 128, 128, 128),
           onTap: () {
             print('Tapped!');
           },
