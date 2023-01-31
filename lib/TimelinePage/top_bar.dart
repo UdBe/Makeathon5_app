@@ -11,7 +11,7 @@ class TopBar extends StatelessWidget {
             Image.asset(
               'Assets/vector4.png',
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 3,
+              height: MediaQuery.of(context).size.height / 3.5,
               fit: BoxFit.fill,
             ),
           ],
@@ -21,7 +21,7 @@ class TopBar extends StatelessWidget {
             Image.asset(
               'Assets/vector7.png',
               width: MediaQuery.of(context).size.width,
-              // height: MediaQuery.of(context).size.height / 5.5,
+              height: MediaQuery.of(context).size.height / 5.5,
               fit: BoxFit.fill,
             ),
           ],

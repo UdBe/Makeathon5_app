@@ -28,23 +28,15 @@ class _TimelinePageState extends State<TimelinePage> {
             TopBar(),
             Container(
               margin: EdgeInsets.only(
-                  top: (MediaQuery.of(context).size.height / 3) + 25),
-              child: Row(
-                children: [
-                  Spacer(),
-                  Flexible(
-                    flex: 12,
-                    child: ListView.builder(
-                      itemBuilder: (context, index) {
-                        return ExpandableCard(timelines[index]);
-                      },
-                      itemCount: timelines.length,
-                      scrollDirection: Axis.vertical,
-                      shrinkWrap: true,
-                    ),
-                  ),
-                  Spacer(),
-                ],
+                  top: MediaQuery.of(context).size.height / 3.5),
+              child: ListView.builder(
+                padding: EdgeInsets.all(15),
+                itemBuilder: (context, index) {
+                  return ExpandableCard(timelines[index]);
+                },
+                itemCount: timelines.length,
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
               ),
             ),
             Container(

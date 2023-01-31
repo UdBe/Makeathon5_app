@@ -45,6 +45,8 @@ dependencies:
   file_picker: ^5.2.5
   intl: ^0.17.0
 
+uses-material-design: true
+
 
 dev_dependencies:
   flutter_test:

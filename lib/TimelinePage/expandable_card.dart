@@ -30,48 +30,52 @@ class ExpandableCard extends StatelessWidget {
                     BlendMode.overlay),
                 child: IgnorePointer(
                   ignoring: !(timeline!.hasElapsed! || timeline!.isActive!),
-                  child: ExpansionTile(
-                    trailing: Icon(
-                      Icons.arrow_drop_down_rounded,
-                    ),
-                    title: Text(
-                      '${timeline!.title}',
-                      style: TextStyle(
-                        color: !(timeline!.hasElapsed! || timeline!.isActive!)
-                            ? Color.fromARGB(165, 80, 80, 80)
-                            : Color.fromARGB(255, 34, 99, 192),
-                        fontSize: 22,
-                        fontFamily: 'Jejugothic',
-                        // fontWeight: FontWeight.bold,
+                  child: Theme(
+                    data: ThemeData(splashFactory: InkRipple.splashFactory),
+                    child: ExpansionTile(
+                      trailing: Icon(
+                        Icons.arrow_drop_down_rounded,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                    subtitle: Text(
-                      '${timeline!.time}',
-                      style: TextStyle(
-                        fontFamily: 'Jejugothic',
-                        color: !(timeline!.hasElapsed! || timeline!.isActive!)
-                            ? Color.fromARGB(165, 80, 80, 80)
-                            : Color.fromARGB(255, 34, 99, 192),
-                        fontSize: 12,
-                        // fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    // ignore: prefer_const_literals_to_create_immutables
-                    children: <Widget>[
-                      ListTile(
-                        visualDensity: VisualDensity(vertical: 4),
-                        subtitle: Text(
-                          '${timeline!.body}',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Inter',
-                          ),
-                          // textAlign: TextAlign.center,
+                      title: Text(
+                        '${timeline!.title}',
+                        style: TextStyle(
+                          color: !(timeline!.hasElapsed! || timeline!.isActive!)
+                              ? Color.fromARGB(165, 80, 80, 80)
+                              : Color.fromARGB(255, 34, 99, 192),
+                          fontSize: 22,
+                          fontFamily: 'Jejugothic',
+                          // fontWeight: FontWeight.bold,
                         ),
+                        textAlign: TextAlign.center,
                       ),
-                    ],
+                      subtitle: Text(
+                        '${timeline!.time}',
+                        style: TextStyle(
+                          fontFamily: 'Jejugothic',
+                          color: !(timeline!.hasElapsed! || timeline!.isActive!)
+                              ? Color.fromARGB(165, 80, 80, 80)
+                              : Color.fromARGB(255, 34, 99, 192),
+                          fontSize: 12,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: <Widget>[
+                        ListTile(
+                          title: Padding(
+                            padding: EdgeInsets.only(bottom: 6),
+                            child: Text(
+                              '${timeline!.body}',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'Inter',
+                                  fontSize: 14),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 )),
       ),
