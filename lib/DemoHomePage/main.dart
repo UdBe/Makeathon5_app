@@ -35,17 +35,17 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
               elevatedButtonCustom('Announcements Page', () {
-                Navigator.of(context).pushReplacement(
+                Navigator.of(context).push(
                   new MaterialPageRoute(builder: (BuildContext context) => AnnouncementsPage() ));
               }),
               SizedBox(height: 30,),
               elevatedButtonCustom('Check-in Page', () {
-                Navigator.of(context).pushReplacement(
+                Navigator.of(context).push(
                     new MaterialPageRoute(builder: (BuildContext context) => CheckinPage() ));
               }),
               SizedBox(height: 30,),
               elevatedButtonCustom('First Page', ()  {
-              Navigator.of(context).pushReplacement(
+              Navigator.of(context).push(
                 new MaterialPageRoute(builder: (BuildContext context) => FirstPage() ));
               }),
           ],
@@ -59,13 +59,16 @@ Widget elevatedButtonCustom(String value , Function? function())
 {
     return  ElevatedButton(
         onPressed: function,
-        child: Text(
-            value,
-            style: TextStyle(
-              color: Color(0xFFFFFFFF),
-              fontFamily: 'JejuGothic',
-              fontSize: 30,
-            ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+              value,
+              style: TextStyle(
+                color: Color(0xFFFFFFFF),
+                fontFamily: 'JejuGothic',
+                fontSize: 30,
+              ),
+          ),
         ),
         style: ElevatedButton.styleFrom(
         backgroundColor: Color(0xFF2263C0),
