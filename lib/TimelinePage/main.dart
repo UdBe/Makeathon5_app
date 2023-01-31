@@ -13,6 +13,7 @@ class TimelinePage extends StatefulWidget {
 
 class _TimelinePageState extends State<TimelinePage> {
   var timelines = <Timeline>[];
+  bool isLoading = true;
   void initState() {
     super.initState();
     fetchTimelines();
@@ -46,6 +47,24 @@ class _TimelinePageState extends State<TimelinePage> {
                 ],
               ),
             ),
+            Container(
+              margin:
+                  EdgeInsets.only(top: MediaQuery.of(context).size.height / 3),
+              child: Column(children: [
+                Spacer(),
+                Row(
+                  children: [
+                    Spacer(),
+                    Visibility(
+                      visible: isLoading,
+                      child: CircularProgressIndicator(),
+                    ),
+                    Spacer()
+                  ],
+                ),
+                Spacer()
+              ]),
+            )
           ],
         ),
       ),
@@ -68,6 +87,8 @@ class _TimelinePageState extends State<TimelinePage> {
       );
       timelines.add(timeline);
     }
-    setState(() {});
+    setState(() {
+      isLoading = false;
+    });
   }
 }

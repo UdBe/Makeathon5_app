@@ -42,6 +42,7 @@ class _CheckinPageState extends State<CheckinPage> {
                 child: Image.asset(
                   'Assets/vector7.png',
                   width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height / 5,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -60,7 +61,7 @@ class _CheckinPageState extends State<CheckinPage> {
                   Spacer(),
                   Container(
                     transform: Matrix4.translationValues(
-                        0, -MediaQuery.of(context).size.height / 50, 0),
+                        0, -MediaQuery.of(context).size.height / 20, 0),
                     child: Image.asset('Assets/vector.png'),
                   ),
                 ],
