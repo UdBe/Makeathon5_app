@@ -35,17 +35,6 @@ class _HomePageState extends State<HomePage> {
                             return Transform.scale(
                               scale: i == _index ? 1 : 0.9,
                               child: Card(
-                                margin: EdgeInsets.only(
-                                  left: 17 *
-                                      MediaQuery.of(context).size.width /
-                                      400,
-                                  top: 350 *
-                                      MediaQuery.of(context).size.width /
-                                      800,
-                                  bottom: 40 *
-                                      MediaQuery.of(context).size.width /
-                                      800,
-                                ),
                                 elevation: 4,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),

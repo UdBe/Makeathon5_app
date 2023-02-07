@@ -10,6 +10,7 @@ class SmallCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width / 3,
       margin: EdgeInsets.only(right: 10),
       child: Card(
+        clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25.0),
         ),
