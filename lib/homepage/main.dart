@@ -1,6 +1,6 @@
 // ignore_for_file: camel_case_types
 import 'package:flutter/material.dart';
-import 'package:makeathon5_app/homepage/card_small.dart';
+import 'package:makeathon5_app/HomePage/card_small.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
