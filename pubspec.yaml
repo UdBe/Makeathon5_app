@@ -44,6 +44,9 @@ dependencies:
   google_sign_in: ^5.4.3
   fluttertoast: ^8.1.2
   file_picker: ^5.2.5
+  firebase_messaging: ^14.2.1
+  url_launcher: ^6.1.8
+  device_apps: ^2.2.0
 
 dev_dependencies:
   flutter_test:
