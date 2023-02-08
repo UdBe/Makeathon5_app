@@ -12,7 +12,9 @@ class HeaderFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height / 4.5;
-    return Column(
+    return Scaffold(
+        body: SafeArea(
+            child: Column(
       children: [
         Container(
           child: Stack(
@@ -180,7 +182,7 @@ class HeaderFooter extends StatelessWidget {
           ),
         ),
       ],
-    );
+    )));
   }
 
   Future<void> logout() async {

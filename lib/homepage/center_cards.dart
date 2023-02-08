@@ -6,70 +6,74 @@ class CenterCards extends StatefulWidget {
   const CenterCards({super.key});
 
   @override
-  State<CenterCards> createState() => _HomePageState();
+  State<CenterCards> createState() => CenterCardsState();
 }
 
-class _HomePageState extends State<CenterCards> {
+class CenterCardsState extends State<CenterCards> {
   int _index = 0;
   int _indexj = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(216, 255, 254, 254),
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                height: 0.5 * MediaQuery.of(context).size.height,
-                child: Center(
-                  child: PageView.builder(
-                    itemCount: 10,
-                    controller: PageController(viewportFraction: 0.9),
-                    onPageChanged: (int index) =>
-                        setState(() => _index = index),
-                    itemBuilder: (_, i) {
-                      return Transform.scale(
-                        scale: i == _index ? 1 : 0.9,
+      alignment: Alignment.center,
+      // margin: EdgeInsets.only(top: (MediaQuery.of(context).size.height / 4.5)),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height / 4,
+              child: Center(
+                child: PageView.builder(
+                  itemCount: 10,
+                  controller: PageController(viewportFraction: 0.9),
+                  onPageChanged: (int index) => setState(() => _index = index),
+                  itemBuilder: (_, i) {
+                    return Transform.scale(
+                      scale: i == _index ? 1 : 0.9,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 5),
                         child: Card(
+                          clipBehavior: Clip.antiAlias,
                           elevation: 4,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20)),
-                          child: Center(
-                            child: Text(
-                              "Card ${i + 1}",
-                              style: TextStyle(fontSize: 32),
+                          child: InkWell(
+                            splashFactory: InkRipple.splashFactory,
+                            onTap: () {},
+                            child: Center(
+                              child: Text(
+                                "Card ${i + 1}",
+                                style: TextStyle(fontSize: 32),
+                              ),
                             ),
                           ),
                         ),
-                      );
-                    },
-                  ),
+                      ),
+                    );
+                  },
                 ),
               ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Container(
-                  height: 155,
-                  width: MediaQuery.of(context).size.width,
-                  child: ListView(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      SmallCard(),
-                      SmallCard(),
-                      SmallCard(),
-                      SmallCard(),
-                      SmallCard(),
-                      SmallCard(),
-                      SmallCard(),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+            Row(
+              children: [
+                Flexible(
+                    flex: 1,
+                    child: SmallCard(
+                      title: 'Check In',
+                    )),
+                Flexible(
+                    flex: 1,
+                    child: SmallCard(
+                      title: 'Timeline',
+                    )),
+                Flexible(
+                    flex: 1,
+                    child: SmallCard(
+                      title: 'Announcements',
+                    )),
+              ],
+            ),
+          ],
         ),
       ),
     );

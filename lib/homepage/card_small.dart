@@ -6,13 +6,14 @@ class SmallCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height / 6,
       padding: EdgeInsets.symmetric(vertical: 5),
       width: MediaQuery.of(context).size.width / 3,
-      margin: EdgeInsets.only(right: 10),
+      margin: EdgeInsets.symmetric(horizontal: 5),
       child: Card(
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25.0),
+          borderRadius: BorderRadius.circular(18.0),
         ),
         elevation: 4,
         child: InkWell(
@@ -24,11 +25,11 @@ class SmallCard extends StatelessWidget {
               Image.asset("images/Background.png", height: 30),
               SizedBox(height: 10),
               Text(
-                "TimeLine",
+                title!,
                 style: TextStyle(
                   fontFamily: 'JejuGothic',
                   fontWeight: FontWeight.w200,
-                  fontSize: 18,
+                  fontSize: 12,
                   color: Color.fromARGB(255, 34, 100, 192),
                 ),
               ),
