@@ -25,7 +25,7 @@ class CenterCardsState extends State<CenterCards> {
               child: Center(
                 child: PageView.builder(
                   itemCount: 10,
-                  controller: PageController(viewportFraction: 0.9),
+                  controller: PageController(viewportFraction: 0.95),
                   onPageChanged: (int index) => setState(() => _index = index),
                   itemBuilder: (_, i) {
                     return Transform.scale(
@@ -60,16 +60,22 @@ class CenterCardsState extends State<CenterCards> {
                     flex: 1,
                     child: SmallCard(
                       title: 'Check In',
+                      imgPath: "Assets/checkin.png",
+                      subtitle: "Not checked in",
+                      subtitleColor: Color.fromARGB(255, 184, 62, 62),
                     )),
                 Flexible(
                     flex: 1,
                     child: SmallCard(
-                      title: 'Timeline',
-                    )),
+                        title: 'Timeline',
+                        imgPath: "Assets/timeline.png",
+                        subtitle: "Checkpoint 3",
+                        subtitleColor: Color.fromARGB(255, 48, 147, 98))),
                 Flexible(
                     flex: 1,
                     child: SmallCard(
-                      title: 'Announcements',
+                      imgPath: "Assets/announcements.png",
+                      title: 'Announce\nments',
                     )),
               ],
             ),

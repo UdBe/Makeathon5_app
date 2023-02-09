@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 
 class SmallCard extends StatelessWidget {
   String? title, subtitle, status, imgPath;
-  SmallCard({this.imgPath, this.title, this.subtitle, this.status});
+  Color? subtitleColor;
+  SmallCard({
+    this.imgPath,
+    this.title,
+    this.subtitle,
+    this.subtitleColor,
+  });
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,16 +28,40 @@ class SmallCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset("images/Background.png", height: 30),
+              Image.asset(
+                imgPath!,
+                height: 35,
+                colorBlendMode: BlendMode.srcATop,
+              ),
               SizedBox(height: 10),
-              Text(
-                title!,
-                style: TextStyle(
-                  fontFamily: 'JejuGothic',
-                  fontWeight: FontWeight.w200,
-                  fontSize: 12,
-                  color: Color.fromARGB(255, 34, 100, 192),
-                ),
+              Column(
+                children: [
+                  Text(
+                    title!,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontFamily: 'JejuGothic',
+                      fontWeight: FontWeight.w200,
+                      fontSize: 14,
+                      color: Color.fromARGB(255, 34, 100, 192),
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  subtitle == null
+                      ? SizedBox(
+                          height: 0,
+                        )
+                      : Text(
+                          subtitle!,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'JejuGothic',
+                            fontWeight: FontWeight.w200,
+                            fontSize: 12,
+                            color: subtitleColor!,
+                          ),
+                        )
+                ],
               ),
             ],
           ),
