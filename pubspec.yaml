@@ -48,6 +48,8 @@ dependencies:
   url_launcher: ^6.1.8
   device_apps: ^2.2.0
 
+uses-material-design: true
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
