@@ -9,6 +9,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:device_apps/device_apps.dart';
 
 class HeaderFooter extends StatelessWidget {
+  String? name;
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height / 4.5;
@@ -31,7 +33,7 @@ class HeaderFooter extends StatelessWidget {
                   fit: BoxFit.fill),
               Container(
                 margin: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width / 8,
+                    left: MediaQuery.of(context).size.width / 10,
                     right: MediaQuery.of(context).size.width / 16,
                     top: 1.9 * height / 6),
                 child: Row(
@@ -39,24 +41,24 @@ class HeaderFooter extends StatelessWidget {
                     CircleAvatar(
                       radius: 2.2 * height / 12,
                       backgroundImage: NetworkImage(
-                        'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png',
+                        '${FirebaseAuth.instance.currentUser!.providerData[0].photoURL}',
                       ),
                     ),
                     SizedBox(
-                      width: 15,
+                      width: 20,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Hello, Ishita!',
+                          'Hello, ${FirebaseAuth.instance.currentUser!.providerData[0].displayName}!',
                           style: TextStyle(color: Colors.white, fontSize: 22),
                         ),
                         SizedBox(
                           height: 5,
                         ),
                         Text(
-                          'iishita_be22@thapar.edu',
+                          '${FirebaseAuth.instance.currentUser!.providerData[0].email}',
                           style: TextStyle(color: Colors.white, fontSize: 12),
                         ),
                       ],
@@ -67,13 +69,13 @@ class HeaderFooter extends StatelessWidget {
                       child: GestureDetector(
                         child: Icon(Icons.logout_outlined),
                         onTap: () {
-                          logout().then((value) {
-                            Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => FirstPage()),
-                                (route) => false);
-                          });
+                          // logout().then((value) {
+                          //   Navigator.pushAndRemoveUntil(
+                          //       context,
+                          //       MaterialPageRoute(
+                          //           builder: (context) => FirstPage()),
+                          //       (route) => false);
+                          // });
                         },
                       ),
                     )
@@ -181,10 +183,5 @@ class HeaderFooter extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  Future<void> logout() async {
-    GoogleSignIn().disconnect();
-    await FirebaseAuth.instance.signOut();
   }
 }
