@@ -15,13 +15,41 @@
       },
       "oauth_client": [
         {
-          "client_id": "962819408926-s6p8991knv2traif6cempkub8vkn1k2h.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.makeathon5_app",
-            "certificate_hash": "9f09222d58c8315f47aa8d807c92efcde29cd6fe"
-          }
-        },
+          "client_id": "962819408926-88ci77f7607hpjsadk15psg60medv7uc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMF4heZmdjWorNFjCLIXayNr1huxT9oYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "962819408926-88ci77f7607hpjsadk15psg60medv7uc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "962819408926-fjvgqgmjj1n1rfjshk4dq1crfdqmrh7r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.makeathon5App"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962819408926:android:a1caa900faced3a2181a0f",
+        "android_client_info": {
+          "package_name": "com.mlsc.makeathon.app"
+        }
+      },
+      "oauth_client": [
         {
           "client_id": "962819408926-88ci77f7607hpjsadk15psg60medv7uc.apps.googleusercontent.com",
           "client_type": 3
@@ -36,7 +64,6 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-            
               "client_id": "962819408926-88ci77f7607hpjsadk15psg60medv7uc.apps.googleusercontent.com",
               "client_type": 3
             },
@@ -54,4 +81,3 @@
   ],
   "configuration_version": "1"
 }
-

@@ -3,16 +3,18 @@ import 'package:flutter/material.dart';
 class SmallCard extends StatelessWidget {
   String? title, subtitle, status, imgPath;
   Color? subtitleColor;
-  SmallCard({
-    this.imgPath,
-    this.title,
-    this.subtitle,
-    this.subtitleColor,
-  });
+  MaterialPageRoute route;
+
+  SmallCard(
+      {this.imgPath,
+      this.title,
+      this.subtitle,
+      this.subtitleColor,
+      required this.route});
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height / 6,
+      height: MediaQuery.of(context).size.height / 5.6,
       padding: EdgeInsets.symmetric(vertical: 5),
       width: MediaQuery.of(context).size.width / 3,
       margin: EdgeInsets.symmetric(horizontal: 5),
@@ -24,7 +26,9 @@ class SmallCard extends StatelessWidget {
         elevation: 4,
         child: InkWell(
           splashFactory: InkRipple.splashFactory,
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, route);
+          },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

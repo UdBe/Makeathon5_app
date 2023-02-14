@@ -1,6 +1,11 @@
 // ignore_for_file: camel_case_types
 import 'package:flutter/material.dart';
+import 'package:makeathon5_app/AnnouncementsPage/announcement.dart';
+import 'package:makeathon5_app/AnnouncementsPage/main.dart';
+import 'package:makeathon5_app/CheckinPage/main.dart';
 import 'package:makeathon5_app/HomePage/card_small.dart';
+import 'package:makeathon5_app/TimelinePage/main.dart';
+import 'package:makeathon5_app/TimelinePage/timeline.dart';
 
 class CenterCards extends StatefulWidget {
   const CenterCards({super.key});
@@ -20,8 +25,8 @@ class CenterCardsState extends State<CenterCards> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height / 4,
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 3.8,
               child: Center(
                 child: PageView.builder(
                   itemCount: 10,
@@ -31,7 +36,7 @@ class CenterCardsState extends State<CenterCards> {
                     return Transform.scale(
                       scale: i == _index ? 1 : 0.9,
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 5),
+                        padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Card(
                           clipBehavior: Clip.antiAlias,
                           elevation: 4,
@@ -40,9 +45,9 @@ class CenterCardsState extends State<CenterCards> {
                           child: InkWell(
                             splashFactory: InkRipple.splashFactory,
                             onTap: () {},
-                            child: Center(
+                            child: const Center(
                               child: Text(
-                                "Card ${i + 1}",
+                                "Prizes Carousel ",
                                 style: TextStyle(fontSize: 32),
                               ),
                             ),
@@ -54,6 +59,9 @@ class CenterCardsState extends State<CenterCards> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 12,
+            ),
             Row(
               children: [
                 Flexible(
@@ -63,19 +71,29 @@ class CenterCardsState extends State<CenterCards> {
                       imgPath: "Assets/checkin.png",
                       subtitle: "Not checked in",
                       subtitleColor: Color.fromARGB(255, 184, 62, 62),
+                      route: MaterialPageRoute(
+                        builder: (context) => CheckinPage(),
+                      ),
                     )),
                 Flexible(
                     flex: 1,
                     child: SmallCard(
-                        title: 'Timeline',
-                        imgPath: "Assets/timeline.png",
-                        subtitle: "Checkpoint 3",
-                        subtitleColor: Color.fromARGB(255, 48, 147, 98))),
+                      title: 'Timeline',
+                      imgPath: "Assets/timeline.png",
+                      subtitle: "Checkpoint 3",
+                      subtitleColor: Color.fromARGB(255, 48, 147, 98),
+                      route: MaterialPageRoute(
+                        builder: (context) => TimelinePage(),
+                      ),
+                    )),
                 Flexible(
                     flex: 1,
                     child: SmallCard(
                       imgPath: "Assets/announcements.png",
                       title: 'Announce\nments',
+                      route: MaterialPageRoute(
+                        builder: (context) => AnnouncementsPage(),
+                      ),
                     )),
               ],
             ),

@@ -1,25 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:makeathon5_app/AnnouncementsPage/announcement_card.dart';
-import 'package:makeathon5_app/AnnouncementsPage/main.dart';
-import 'package:makeathon5_app/CheckinPage/main.dart';
 import 'package:makeathon5_app/HomePage/main.dart';
 import 'FirstPage/main.dart';
-import 'TimelinePage/expandable_card.dart';
-import 'TimelinePage/main.dart';
-import 'firebase_options.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:firebase_database/firebase_database.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
-  initFirebase();
-}
-
-Future<void> initFirebase() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +16,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: Scaffold(
+        body: StreamBuilder(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                  child: CircularProgressIndicator(
+                      backgroundColor: Colors.black,
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white)),
+                );
+              } else if (snapshot.hasError) {
+                return const Center(
+                  child: Text("Something Went Wrong!"),
+                );
+              } else if (snapshot.hasData) {
+                return HomePage();
+              } else {
+                return FirstPage();
+              }
+            }),
+      ),
     );
   }
 }

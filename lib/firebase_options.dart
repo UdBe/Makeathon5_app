@@ -58,7 +58,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDMF4heZmdjWorNFjCLIXayNr1huxT9oYo',
-    appId: '1:962819408926:android:09dd55ce0b250e83181a0f',
+    appId: '1:962819408926:android:a1caa900faced3a2181a0f',
     messagingSenderId: '962819408926',
     projectId: 'make5app-dummy',
     databaseURL: 'https://make5app-dummy-default-rtdb.firebaseio.com',
@@ -72,7 +72,6 @@ class DefaultFirebaseOptions {
     projectId: 'make5app-dummy',
     databaseURL: 'https://make5app-dummy-default-rtdb.firebaseio.com',
     storageBucket: 'make5app-dummy.appspot.com',
-    androidClientId: '962819408926-s6p8991knv2traif6cempkub8vkn1k2h.apps.googleusercontent.com',
     iosClientId: '962819408926-fjvgqgmjj1n1rfjshk4dq1crfdqmrh7r.apps.googleusercontent.com',
     iosBundleId: 'com.example.makeathon5App',
   );

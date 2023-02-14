@@ -4,12 +4,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:makeathon5_app/FirstPage/google_sign_in.dart';
 import 'package:makeathon5_app/FirstPage/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:device_apps/device_apps.dart';
 
 class HeaderFooter extends StatelessWidget {
   String? name;
+
+  Future<void> userLogout(context) async {
+    await FirebaseAuth.instance.signOut();
+    googleSignIn?.disconnect();
+    Navigator.pushAndRemoveUntil(context,
+        MaterialPageRoute(builder: (context) => FirstPage()), (route) => false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,15 +59,25 @@ class HeaderFooter extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Hello, ${FirebaseAuth.instance.currentUser!.providerData[0].displayName}!',
-                          style: TextStyle(color: Colors.white, fontSize: 22),
+                          'Hello, ${FirebaseAuth.instance.currentUser!.providerData[0].displayName}',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w400),
                         ),
                         SizedBox(
-                          height: 5,
+                          height: 7,
                         ),
                         Text(
                           '${FirebaseAuth.instance.currentUser!.providerData[0].email}',
-                          style: TextStyle(color: Colors.white, fontSize: 12),
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                        SizedBox(
+                          height: 7,
+                        ),
+                        Text(
+                          "Team Name",
+                          style: TextStyle(color: Colors.white, fontSize: 15),
                         ),
                       ],
                     ),
@@ -69,13 +87,7 @@ class HeaderFooter extends StatelessWidget {
                       child: GestureDetector(
                         child: Icon(Icons.logout_outlined),
                         onTap: () {
-                          // logout().then((value) {
-                          //   Navigator.pushAndRemoveUntil(
-                          //       context,
-                          //       MaterialPageRoute(
-                          //           builder: (context) => FirstPage()),
-                          //       (route) => false);
-                          // });
+                          userLogout(context);
                         },
                       ),
                     )
@@ -94,7 +106,7 @@ class HeaderFooter extends StatelessWidget {
                 child: Image.asset(
                   "Assets/rectangle35.png",
                   width: MediaQuery.of(context).size.width / 1.5,
-                  height: MediaQuery.of(context).size.height / 6.5,
+                  height: MediaQuery.of(context).size.height / 8.5,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -106,7 +118,7 @@ class HeaderFooter extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
-                          width: MediaQuery.of(context).size.width / 6,
+                          width: MediaQuery.of(context).size.width / 7,
                           child: FloatingActionButton.small(
                             backgroundColor: Colors.white,
                             onPressed: () {
@@ -123,7 +135,7 @@ class HeaderFooter extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width / 6,
+                          width: MediaQuery.of(context).size.width / 7,
                           child: FloatingActionButton.small(
                             backgroundColor: Colors.white,
                             onPressed: () {
@@ -140,7 +152,7 @@ class HeaderFooter extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width / 6,
+                          width: MediaQuery.of(context).size.width / 7,
                           child: FloatingActionButton.small(
                             backgroundColor: Colors.white,
                             onPressed: () {
@@ -158,7 +170,7 @@ class HeaderFooter extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width / 6,
+                          width: MediaQuery.of(context).size.width / 7,
                           child: FloatingActionButton.small(
                             backgroundColor: Colors.white,
                             onPressed: () {

@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:makeathon5_app/CheckinPage/main.dart';
+import 'package:makeathon5_app/HomePage/main.dart';
 
 GoogleSignIn? googleSignIn;
 
@@ -45,14 +46,23 @@ class SignInButton extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(
                     Color.fromARGB(255, 216, 217, 216))),
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: ((context) {
-                    //TODO: Change to HomePage()
-                    return CheckinPage();
-                  }),
-                ),
+              Authentication().signInWithGoogle().then(
+                (value) {
+                  User? user = value.user;
+                  if (!user!.providerData[0].email!.endsWith('thapar.edu')) {
+                    _signOut();
+                  } else {
+                    updateOnDatabase(user);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) {
+                          return HomePage();
+                        }),
+                      ),
+                    );
+                  }
+                },
               );
             },
             child: Container(
@@ -66,7 +76,7 @@ class SignInButton extends StatelessWidget {
                     ),
                     Spacer(),
                     Text(
-                      'Skip Sign-in',
+                      'Sign in with Google',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.bold,

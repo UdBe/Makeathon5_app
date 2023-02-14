@@ -75,10 +75,6 @@ class _CheckinPageState extends State<CheckinPage> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      'Assets/back_arrow.png',
-                      scale: 1.25,
-                    ),
                     Spacer(),
                     Image.asset(
                       'Assets/MLSClogo.png',
