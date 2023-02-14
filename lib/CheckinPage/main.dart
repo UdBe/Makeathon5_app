@@ -17,6 +17,7 @@ void checkinUser() {
   //TODO: Implement checkin and upload cert to databse
 }
 
+//test
 class _CheckinPageState extends State<CheckinPage> {
   bool ischecked = false;
 
