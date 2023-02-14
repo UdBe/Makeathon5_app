@@ -18,15 +18,10 @@ void checkinUser() {
 }
 
 class _CheckinPageState extends State<CheckinPage> {
-  bool isEnabled = false;
+  bool ischecked = false;
+
   @override
   Widget build(BuildContext context) {
-    void changeState(bool isEnabled) {
-      setState(() {
-        this.isEnabled = isEnabled;
-      });
-    }
-
     return Scaffold(
       body: Stack(
         children: [
@@ -90,11 +85,30 @@ class _CheckinPageState extends State<CheckinPage> {
             child: Column(
               children: [
                 Spacer(),
-                UploadButton(changeState),
+                Row(
+                  children: [
+                    Checkbox(
+                        value: ischecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            ischecked = value!;
+                          });
+                          ;
+                        }),
+                    Flexible(
+                      child: Text(
+                        "Me tumhari saari shartein maanta/maanti hu",
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
                 SizedBox(
                   height: 60,
                 ),
-                CheckinButton(isEnabled)
+                CheckinButton(ischecked)
               ],
             ),
           ),

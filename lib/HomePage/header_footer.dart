@@ -1,20 +1,17 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:makeathon5_app/FirstPage/google_sign_in.dart';
 import 'package:makeathon5_app/FirstPage/main.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:device_apps/device_apps.dart';
 
 class HeaderFooter extends StatelessWidget {
   String? name;
 
   Future<void> userLogout(context) async {
     await FirebaseAuth.instance.signOut();
-    googleSignIn?.disconnect();
+    googleSignIn!.disconnect();
     Navigator.pushAndRemoveUntil(context,
         MaterialPageRoute(builder: (context) => FirstPage()), (route) => false);
   }
