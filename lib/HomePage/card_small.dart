@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SmallCard extends StatelessWidget {
   String? title, subtitle, status, imgPath;
   Color? subtitleColor;
-  MaterialPageRoute route;
+  String route;
 
   SmallCard(
       {this.imgPath,
@@ -27,7 +27,7 @@ class SmallCard extends StatelessWidget {
         child: InkWell(
           splashFactory: InkRipple.splashFactory,
           onTap: () {
-            Navigator.push(context, route);
+            Navigator.pushNamed(context, route);
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

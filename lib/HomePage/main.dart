@@ -1,9 +1,10 @@
 // ignore_for_file: camel_case_types
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:makeathon5_app/HomePage/card_small.dart';
+import 'package:makeathon5_app/AnnouncementsPage/main.dart';
+import 'package:makeathon5_app/CheckinPage/main.dart';
 import 'package:makeathon5_app/HomePage/center_cards.dart';
 import 'package:makeathon5_app/HomePage/header_footer.dart';
+import 'package:makeathon5_app/TimelinePage/main.dart';
 
 HelpScreen(context) {
   showModalBottomSheet(
@@ -31,6 +32,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/Checkin': (context) => CheckinPage(),
+        '/Announcements': (context) => AnnouncementsPage(),
+        '/Timeline': (context) => TimelinePage()
+      },
       home: Scaffold(
         body: SafeArea(
           child: Stack(
@@ -41,6 +47,7 @@ class HomePage extends StatelessWidget {
           height: 85,
           width: 75,
           child: FloatingActionButton(
+            heroTag: "Floatingbtn",
             backgroundColor: Color.fromRGBO(34, 99, 192, 1.000),
             onPressed: () {
               HelpScreen(context);

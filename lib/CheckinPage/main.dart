@@ -1,9 +1,7 @@
-import 'dart:io';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:makeathon5_app/CheckinPage/Geofencing.dart';
 import 'package:makeathon5_app/CheckinPage/checkin_button.dart';
-import 'package:makeathon5_app/CheckinPage/upload_button.dart';
 
 class CheckinPage extends StatefulWidget {
   User? user;
@@ -12,12 +10,12 @@ class CheckinPage extends StatefulWidget {
   _CheckinPageState createState() => _CheckinPageState();
 }
 
-void checkinUser() {
-  File certificate = UploadButton.file!;
-  //TODO: Implement checkin and upload cert to databse
+void checkinUser(context) async {
+  double distance = await geofenceUser(context);
+  ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("Distance from Makeathon5 $distance meters!")));
 }
 
-//test
 class _CheckinPageState extends State<CheckinPage> {
   bool ischecked = false;
 

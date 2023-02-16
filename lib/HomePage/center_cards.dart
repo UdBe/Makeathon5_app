@@ -71,9 +71,7 @@ class CenterCardsState extends State<CenterCards> {
                       imgPath: "Assets/checkin.png",
                       subtitle: "Not checked in",
                       subtitleColor: Color.fromARGB(255, 184, 62, 62),
-                      route: MaterialPageRoute(
-                        builder: (context) => CheckinPage(),
-                      ),
+                      route: '/Checkin',
                     )),
                 Flexible(
                     flex: 1,
@@ -82,18 +80,14 @@ class CenterCardsState extends State<CenterCards> {
                       imgPath: "Assets/timeline.png",
                       subtitle: "Checkpoint 3",
                       subtitleColor: Color.fromARGB(255, 48, 147, 98),
-                      route: MaterialPageRoute(
-                        builder: (context) => TimelinePage(),
-                      ),
+                      route: '/Timeline',
                     )),
                 Flexible(
                     flex: 1,
                     child: SmallCard(
                       imgPath: "Assets/announcements.png",
                       title: 'Announce\nments',
-                      route: MaterialPageRoute(
-                        builder: (context) => AnnouncementsPage(),
-                      ),
+                      route: '/Announcements',
                     )),
               ],
             ),
