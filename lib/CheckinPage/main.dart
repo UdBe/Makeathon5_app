@@ -86,7 +86,7 @@ class _CheckinPageState extends State<CheckinPage> {
                 Spacer(),
                 Row(
                   children: [
-                    Checkbox(
+                    Checkbox( 
                         value: ischecked,
                         onChanged: (bool? value) {
                           setState(() {

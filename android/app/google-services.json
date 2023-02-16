@@ -51,6 +51,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "962819408926-ujjofdfdbadldphurs46f6sq4rmlmos0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mlsc.makeathon.app",
+            "certificate_hash": "f7265c057d4512f291a78a9eceac23c4559be6ed"
+          }
+        },
+        {
           "client_id": "962819408926-88ci77f7607hpjsadk15psg60medv7uc.apps.googleusercontent.com",
           "client_type": 3
         }

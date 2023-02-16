@@ -108,6 +108,7 @@ class HeaderFooter extends StatelessWidget {
                         Container(
                           width: MediaQuery.of(context).size.width / 6,
                           child: FloatingActionButton.small(
+                            heroTag: "Instagram Button",
                             backgroundColor: Colors.white,
                             onPressed: () {
                               launchUrl(
@@ -125,6 +126,7 @@ class HeaderFooter extends StatelessWidget {
                         Container(
                           width: MediaQuery.of(context).size.width / 6,
                           child: FloatingActionButton.small(
+                            heroTag: "Twitter Button",
                             backgroundColor: Colors.white,
                             onPressed: () {
                               launchUrl(
@@ -142,6 +144,7 @@ class HeaderFooter extends StatelessWidget {
                         Container(
                           width: MediaQuery.of(context).size.width / 6,
                           child: FloatingActionButton.small(
+                            heroTag: "LinkedIn Button",
                             backgroundColor: Colors.white,
                             onPressed: () {
                               launchUrl(
@@ -160,6 +163,7 @@ class HeaderFooter extends StatelessWidget {
                         Container(
                           width: MediaQuery.of(context).size.width / 6,
                           child: FloatingActionButton.small(
+                            heroTag: "Web Button",
                             backgroundColor: Colors.white,
                             onPressed: () {
                               launchUrl(

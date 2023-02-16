@@ -50,6 +50,7 @@ dependencies:
   permission_handler: any
   geolocator: ^9.0.2
 
+
 uses-material-design: true
 
 dev_dependencies:

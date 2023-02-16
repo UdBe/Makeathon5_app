@@ -72,6 +72,7 @@ class DefaultFirebaseOptions {
     projectId: 'make5app-dummy',
     databaseURL: 'https://make5app-dummy-default-rtdb.firebaseio.com',
     storageBucket: 'make5app-dummy.appspot.com',
+    androidClientId: '962819408926-ujjofdfdbadldphurs46f6sq4rmlmos0.apps.googleusercontent.com',
     iosClientId: '962819408926-fjvgqgmjj1n1rfjshk4dq1crfdqmrh7r.apps.googleusercontent.com',
     iosBundleId: 'com.example.makeathon5App',
   );
