@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:makeathon5_app/CheckinPage/Geofencing.dart';
+import 'package:makeathon5_app/CheckinPage/SwipingCheckinButton.dart';
 import 'package:makeathon5_app/CheckinPage/checkin_button.dart';
 
 class CheckinPage extends StatefulWidget {
@@ -86,7 +87,7 @@ class _CheckinPageState extends State<CheckinPage> {
                 Spacer(),
                 Row(
                   children: [
-                    Checkbox( 
+                    Checkbox(
                         value: ischecked,
                         onChanged: (bool? value) {
                           setState(() {
@@ -107,7 +108,7 @@ class _CheckinPageState extends State<CheckinPage> {
                 SizedBox(
                   height: 60,
                 ),
-                CheckinButton(ischecked)
+                SwipingCheckInButton(ischecked)
               ],
             ),
           ),

@@ -49,6 +49,9 @@ dependencies:
   flutter_automation: ^2.0.0
   permission_handler: any
   geolocator: ^9.0.2
+  cloud_firestore: ^4.4.0
+  swipebuttonflutter: ^1.0.0
+  flutter_swipe_button: ^2.1.1+1
 
 
 uses-material-design: true

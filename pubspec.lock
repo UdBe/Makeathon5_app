@@ -73,6 +73,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  cloud_firestore:
+    dependency: "direct main"
+    description:
+      name: cloud_firestore
+      sha256: ef01d98a561554e1c4b760941128957dd7ac66d807ffc7a93656964ba8cde51f
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.4.0"
+  cloud_firestore_platform_interface:
+    dependency: transitive
+    description:
+      name: cloud_firestore_platform_interface
+      sha256: "9b64e7f5e02dd7199a4fc78a110a56fb52e7d62ee9c128f701606bdf5843d16a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.11.0"
+  cloud_firestore_web:
+    dependency: transitive
+    description:
+      name: cloud_firestore_web
+      sha256: "0c65294487124d63aa6b7d0e999c2f5ee56f879b48133bef54068b2e16914015"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.0"
   collection:
     dependency: transitive
     description:
@@ -286,6 +310,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.7"
+  flutter_swipe_button:
+    dependency: "direct main"
+    description:
+      name: flutter_swipe_button
+      sha256: eaddf7bf536bf099f0bcf05bfa861a9ab5b7fb3e9fbfdf48c13180bdc2500ec9
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.1+1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -581,6 +613,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  swipebuttonflutter:
+    dependency: "direct main"
+    description:
+      name: swipebuttonflutter
+      sha256: "7e05c0161c53ea801176ed04eb373bb5adc3cc07f4d35c8043d81783078c2034"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   term_glyph:
     dependency: transitive
     description:
