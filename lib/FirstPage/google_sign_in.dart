@@ -1,10 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:makeathon5_app/CheckinPage/main.dart';
 import 'package:makeathon5_app/HomePage/main.dart';
 
 GoogleSignIn? googleSignIn;
@@ -47,21 +46,30 @@ class SignInButton extends StatelessWidget {
                     Color.fromARGB(255, 216, 217, 216))),
             onPressed: () {
               Authentication().signInWithGoogle().then(
-                (value) {
+                (value) async {
                   User? user = value.user;
-                  if (!user!.providerData[0].email!.endsWith('thapar.edu')) {
-                    _signOut();
-                  } else {
-                    updateOnDatabase(user);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) {
-                          return HomePage();
-                        }),
-                      ),
-                    );
-                  }
+                  String? userEmail =
+                      FirebaseAuth.instance.currentUser?.email.toString();
+//
+                  CollectionReference users =
+                      FirebaseFirestore.instance.collection("users");
+                  final query = users.where("Email", isEqualTo: userEmail);
+                  query.get().then((value) {
+                    if (value.docs.isNotEmpty) {
+                      updateOnDatabase(user!);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((context) {
+                            return HomePage();
+                          }),
+                        ),
+                      );
+                    } else {
+                      _signOut();
+                    }
+                  });
+//
                 },
               );
             },
@@ -98,7 +106,7 @@ class SignInButton extends StatelessWidget {
   Future<void> _signOut() async {
     await FirebaseAuth.instance.signOut();
     googleSignIn!.disconnect();
-    Fluttertoast.showToast(msg: 'Please login with your thapar.edu account');
+    Fluttertoast.showToast(msg: 'Please login with your devfolio email');
   }
 
   Future<void> updateOnDatabase(User user) async {

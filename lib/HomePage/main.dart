@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
           child: FloatingActionButton(
             heroTag: "Floatingbtn",
             backgroundColor: Color.fromRGBO(34, 99, 192, 1.000),
-            onPressed: () {
+            onPressed: () async {
               HelpScreen(context);
             },
             child: const Icon(
