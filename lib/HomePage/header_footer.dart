@@ -5,15 +5,35 @@ import 'package:flutter/material.dart';
 import 'package:makeathon5_app/FirstPage/google_sign_in.dart';
 import 'package:makeathon5_app/FirstPage/main.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../SharedPreferences.dart';
 
-class HeaderFooter extends StatelessWidget {
+class HeaderFooter extends StatefulWidget {
+  @override
+  State<HeaderFooter> createState() => _HeaderFooterState();
+}
+
+class _HeaderFooterState extends State<HeaderFooter> {
+  
   String? name;
+  var TeamName;
+
+  loadTeamName() async {
+    String teamname = await getTeamName();
+    TeamName = teamname;
+    setState(() {});
+  }
 
   Future<void> userLogout(context) async {
     await FirebaseAuth.instance.signOut();
     googleSignIn!.disconnect();
     Navigator.pushAndRemoveUntil(context,
         MaterialPageRoute(builder: (context) => FirstPage()), (route) => false);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadTeamName();
   }
 
   @override
@@ -73,7 +93,7 @@ class HeaderFooter extends StatelessWidget {
                           height: 7,
                         ),
                         Text(
-                          "Team Name",
+                          '$TeamName',
                           style: TextStyle(color: Colors.white, fontSize: 15),
                         ),
                       ],

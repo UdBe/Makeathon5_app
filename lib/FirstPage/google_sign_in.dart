@@ -6,6 +6,20 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:makeathon5_app/HomePage/main.dart';
 
+import '../SharedPreferences.dart';
+
+FindTeamName() async {
+  DocumentSnapshot doc = await FirebaseFirestore.instance
+      .collection('users')
+      .doc(await getUserID())
+      .get()
+      .then((value) {
+    Map<String, dynamic> userdetails = value.data() as Map<String, dynamic>;
+    SaveTeamName(userdetails['Team']);
+    return value;
+  });
+}
+
 GoogleSignIn? googleSignIn;
 
 class Authentication {
@@ -56,6 +70,9 @@ class SignInButton extends StatelessWidget {
                   final query = users.where("Email", isEqualTo: userEmail);
                   query.get().then((value) {
                     if (value.docs.isNotEmpty) {
+                      String userId = value.docs.first.id;
+                      saveUserID(userId);
+                      FindTeamName();
                       updateOnDatabase(user!);
                       Navigator.push(
                         context,

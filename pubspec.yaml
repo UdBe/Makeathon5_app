@@ -52,6 +52,7 @@ dependencies:
   cloud_firestore: ^4.4.0
   swipebuttonflutter: ^1.0.0
   flutter_swipe_button: ^2.1.1+1
+  shared_preferences: ^2.0.17
 
 
 uses-material-design: true
