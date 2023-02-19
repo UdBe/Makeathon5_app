@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:makeathon5_app/FirstPage/google_sign_in.dart';
 import 'package:makeathon5_app/FirstPage/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../SharedPreferences.dart';
 
@@ -13,17 +14,19 @@ class HeaderFooter extends StatefulWidget {
 }
 
 class _HeaderFooterState extends State<HeaderFooter> {
-  
   String? name;
   var TeamName;
 
   loadTeamName() async {
-    String teamname = await getTeamName();
+    String teamname = await getTeamName() ?? "";
     TeamName = teamname;
     setState(() {});
+    return TeamName;
   }
 
   Future<void> userLogout(context) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.clear();
     await FirebaseAuth.instance.signOut();
     googleSignIn!.disconnect();
     Navigator.pushAndRemoveUntil(context,
@@ -34,6 +37,9 @@ class _HeaderFooterState extends State<HeaderFooter> {
   void initState() {
     super.initState();
     loadTeamName();
+    Future.delayed(Duration(milliseconds: 1000), () {
+      loadTeamName();
+    });
   }
 
   @override
@@ -92,10 +98,16 @@ class _HeaderFooterState extends State<HeaderFooter> {
                         SizedBox(
                           height: 7,
                         ),
-                        Text(
-                          '$TeamName',
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
+                        FutureBuilder(
+                            future: loadTeamName(),
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                return Text(TeamName,
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 15));
+                              }
+                              return CircularProgressIndicator();
+                            }),
                       ],
                     ),
                     Spacer(),

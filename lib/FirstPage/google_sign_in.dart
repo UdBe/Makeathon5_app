@@ -13,9 +13,9 @@ FindTeamName() async {
       .collection('users')
       .doc(await getUserID())
       .get()
-      .then((value) {
+      .then((value) async {
     Map<String, dynamic> userdetails = value.data() as Map<String, dynamic>;
-    SaveTeamName(userdetails['Team']);
+    await SaveTeamName(userdetails['Team']);
     return value;
   });
 }
@@ -68,11 +68,11 @@ class SignInButton extends StatelessWidget {
                   CollectionReference users =
                       FirebaseFirestore.instance.collection("users");
                   final query = users.where("Email", isEqualTo: userEmail);
-                  query.get().then((value) {
+                  query.get().then((value) async {
                     if (value.docs.isNotEmpty) {
                       String userId = value.docs.first.id;
-                      saveUserID(userId);
-                      FindTeamName();
+                      await saveUserID(userId);
+                      await FindTeamName();
                       updateOnDatabase(user!);
                       Navigator.push(
                         context,
