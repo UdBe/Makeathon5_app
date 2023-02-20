@@ -1,16 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geolocator/geolocator.dart';
 
-
-BearingBetween(Position userPosition) {
-  double distance = Geolocator.distanceBetween(
-      userPosition.latitude, userPosition.longitude, 30.3552489, 76.3702122);
+BearingBetween(Position userPosition, GeoPoint eventGeoPoint) {
+  print("XXXXXXXXXXXXXXXXX ${eventGeoPoint.latitude}");
+  double distance = Geolocator.distanceBetween(userPosition.latitude,
+      userPosition.longitude, eventGeoPoint.latitude, eventGeoPoint.longitude);
   return distance;
 }
 
 Future<double> geofenceUser(context) async {
   bool serviceEnabled;
   LocationPermission permission;
+  GeoPoint eventGeoPoint;
 
   permission = await Geolocator.checkPermission();
   if (permission == LocationPermission.denied) {
@@ -28,6 +29,21 @@ Future<double> geofenceUser(context) async {
   Position position = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.high);
 
-  double distance = await BearingBetween(position);
+  eventGeoPoint = await getEventLocation();
+
+  double distance = await BearingBetween(position, eventGeoPoint);
   return distance;
+}
+
+Future<GeoPoint> getEventLocation() async {
+  GeoPoint? geoPoint;
+  final documentSnapshot =
+      await FirebaseFirestore.instance.collection("position").doc("pos").get();
+  final data = documentSnapshot.data() as Map<String, dynamic>;
+  data.forEach((key, value) {
+    if (key == "Location") {
+      geoPoint = value;
+    }
+  });
+  return geoPoint!;
 }

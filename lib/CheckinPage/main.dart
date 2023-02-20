@@ -6,29 +6,38 @@ import 'package:makeathon5_app/CheckinPage/SwipingCheckinButton.dart';
 import '../SharedPreferences.dart';
 
 class CheckinPage extends StatefulWidget {
+  Function? callback;
   User? user;
+
+  CheckinPage(this.callback);
 
   @override
   _CheckinPageState createState() => _CheckinPageState();
 }
 
-void checkinUser(context) async {
-  double distance = await geofenceUser(context);
-  if (distance < 1000.00) {
-    DocumentReference doc = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(await getUserID());
-    doc.set({"Checkin": true}, SetOptions(merge: true));
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text("Check-In Successful!"),),);
-  } else {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text("Please reach the offline location before checking-in")));
-  }
-}
-
 class _CheckinPageState extends State<CheckinPage> {
   bool ischecked = false;
+
+  void checkinUser(context) async {
+    double distance = await geofenceUser(context);
+    if (distance < 1000.00) {
+      DocumentReference doc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(await getUserID());
+      doc.set({"Checkin": true}, SetOptions(merge: true));
+      await setCheckedIn(true);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Check-In Successful!"),
+        ),
+      );
+      Navigator.pop(context);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content:
+              Text("Please reach the offline location before checking-in")));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +127,7 @@ class _CheckinPageState extends State<CheckinPage> {
                 SizedBox(
                   height: 60,
                 ),
-                SwipingCheckInButton(ischecked)
+                SwipingCheckInButton(ischecked, widget.callback)
               ],
             ),
           ),

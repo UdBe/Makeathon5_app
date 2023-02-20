@@ -17,25 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: StreamBuilder(
-            stream: FirebaseAuth.instance.authStateChanges(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: CircularProgressIndicator(
-                      backgroundColor: Colors.black,
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white)),
-                );
-              } else if (snapshot.hasError) {
-                return const Center(
-                  child: Text("Something Went Wrong!"),
-                );
-              } else if (snapshot.hasData) {
-                return HomePage();
-              } else {
-                return FirstPage();
-              }
-            }),
+        body: FirebaseAuth.instance.currentUser == null
+            ? FirstPage()
+            : HomePage(),
       ),
     );
   }

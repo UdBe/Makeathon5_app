@@ -4,6 +4,7 @@ import 'package:makeathon5_app/AnnouncementsPage/announcement.dart';
 import 'package:makeathon5_app/AnnouncementsPage/main.dart';
 import 'package:makeathon5_app/CheckinPage/main.dart';
 import 'package:makeathon5_app/HomePage/card_small.dart';
+import 'package:makeathon5_app/SharedPreferences.dart';
 import 'package:makeathon5_app/TimelinePage/main.dart';
 import 'package:makeathon5_app/TimelinePage/timeline.dart';
 
@@ -15,8 +16,22 @@ class CenterCards extends StatefulWidget {
 }
 
 class CenterCardsState extends State<CenterCards> {
+  bool? isCheckedIn;
   int _index = 0;
   int _indexj = 0;
+
+  @override
+  void initState() {
+    print("XXXXXXX INIT STATE XXXXXXXXX");
+    getCheckedin().then((value) {
+      setState(() {
+        print("XXXXXXX SET STATE XXXXXXXXX");
+        this.isCheckedIn = value;
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -69,9 +84,19 @@ class CenterCardsState extends State<CenterCards> {
                     child: SmallCard(
                       title: 'Check In',
                       imgPath: "Assets/checkin.png",
-                      subtitle: "Not checked in",
-                      subtitleColor: Color.fromARGB(255, 184, 62, 62),
+                      subtitle: isCheckedIn == null
+                          ? "Loading..."
+                          : (isCheckedIn! ? "Successful" : "Not checked in"),
+                      subtitleColor: isCheckedIn == null
+                          ? Colors.grey
+                          : (isCheckedIn!
+                              ? Color.fromARGB(255, 48, 147, 98)
+                              : Color.fromARGB(255, 184, 62, 62)),
                       route: '/Checkin',
+                      callback: () async {
+                        isCheckedIn = await getCheckedin();
+                        setState(() {});
+                      },
                     )),
                 Flexible(
                     flex: 1,
@@ -86,7 +111,7 @@ class CenterCardsState extends State<CenterCards> {
                     flex: 1,
                     child: SmallCard(
                       imgPath: "Assets/announcements.png",
-                      title: 'Announce\nments',
+                      title: 'Announcements',
                       route: '/Announcements',
                     )),
               ],

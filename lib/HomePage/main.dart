@@ -10,6 +10,7 @@ import 'package:makeathon5_app/TimelinePage/main.dart';
 HelpScreen(context) {
   showModalBottomSheet(
       context: context,
+      backgroundColor: Colors.transparent,
       builder: (_) {
         return BottomHelpScreen();
       });
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/Checkin': (context) => CheckinPage(),
+        //'/Checkin': (context) => CheckinPage(),
         '/Announcements': (context) => AnnouncementsPage(),
         '/Timeline': (context) => TimelinePage()
       },

@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:makeathon5_app/FirstPage/google_sign_in.dart';
 import 'package:makeathon5_app/FirstPage/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -28,9 +29,12 @@ class _HeaderFooterState extends State<HeaderFooter> {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     await preferences.clear();
     await FirebaseAuth.instance.signOut();
-    googleSignIn!.disconnect();
-    Navigator.pushAndRemoveUntil(context,
-        MaterialPageRoute(builder: (context) => FirstPage()), (route) => false);
+    await GoogleSignIn().disconnect();
+    Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+      return FirstPage();
+    }));
+    // Navigator.pushAndRemoveUntil(context,
+    //     MaterialPageRoute(builder: (context) => FirstPage()), (route) => false);
   }
 
   @override
@@ -82,7 +86,7 @@ class _HeaderFooterState extends State<HeaderFooter> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Hello, ${FirebaseAuth.instance.currentUser!.providerData[0].displayName}',
+                          'Hello, ${FirebaseAuth.instance.currentUser!.providerData[0].displayName!.split(" ")[0]}',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 24,
@@ -105,8 +109,8 @@ class _HeaderFooterState extends State<HeaderFooter> {
                                 return Text(TeamName,
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 15));
-                              }
-                              return CircularProgressIndicator();
+                              } else
+                                return CircularProgressIndicator();
                             }),
                       ],
                     ),
