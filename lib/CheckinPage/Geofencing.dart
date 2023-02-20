@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geolocator/geolocator.dart';
 
 BearingBetween(Position userPosition, GeoPoint eventGeoPoint) {
-  print("XXXXXXXXXXXXXXXXX ${eventGeoPoint.latitude}");
   double distance = Geolocator.distanceBetween(userPosition.latitude,
       userPosition.longitude, eventGeoPoint.latitude, eventGeoPoint.longitude);
   return distance;

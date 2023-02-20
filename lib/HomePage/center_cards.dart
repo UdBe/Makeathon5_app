@@ -22,10 +22,8 @@ class CenterCardsState extends State<CenterCards> {
 
   @override
   void initState() {
-    print("XXXXXXX INIT STATE XXXXXXXXX");
     getCheckedin().then((value) {
       setState(() {
-        print("XXXXXXX SET STATE XXXXXXXXX");
         this.isCheckedIn = value;
       });
     });
