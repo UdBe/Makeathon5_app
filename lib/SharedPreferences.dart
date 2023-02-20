@@ -22,4 +22,13 @@ getTeamName() async {
   return TeamName;
 }
 
+SaveCheckIn(String TeamName) async {
+  SharedPreferences pref = await SharedPreferences.getInstance();
+  await pref.setBool("checkin", true);
+}
 
+getCheckin() async {
+  SharedPreferences pref = await SharedPreferences.getInstance();
+  var TeamName = await pref.getBool("checkin");
+  return TeamName;
+}

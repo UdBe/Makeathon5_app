@@ -1,10 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_swipe_button/flutter_swipe_button.dart';
 import 'package:makeathon5_app/CheckinPage/main.dart';
-import 'package:swipebuttonflutter/swipebuttonflutter.dart';
 
 class SwipingCheckInButton extends StatelessWidget {
   bool isEnabled = false;

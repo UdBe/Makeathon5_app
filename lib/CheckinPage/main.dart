@@ -1,8 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:makeathon5_app/CheckinPage/Geofencing.dart';
 import 'package:makeathon5_app/CheckinPage/SwipingCheckinButton.dart';
-import 'package:makeathon5_app/CheckinPage/checkin_button.dart';
+import '../SharedPreferences.dart';
 
 class CheckinPage extends StatefulWidget {
   User? user;
@@ -13,8 +14,17 @@ class CheckinPage extends StatefulWidget {
 
 void checkinUser(context) async {
   double distance = await geofenceUser(context);
-  ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Distance from Makeathon5 $distance meters!")));
+  if (distance < 1000.00) {
+    DocumentReference doc = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(await getUserID());
+    doc.set({"Checkin": true}, SetOptions(merge: true));
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text("Check-In Successful!"),),);
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text("Please reach the offline location before checking-in")));
+  }
 }
 
 class _CheckinPageState extends State<CheckinPage> {

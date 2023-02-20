@@ -70,7 +70,7 @@ class SignInButton extends StatelessWidget {
                   final query = users.where("Email", isEqualTo: userEmail);
                   query.get().then((value) async {
                     if (value.docs.isNotEmpty) {
-                      String userId = value.docs.first.id;
+                      String userId = userEmail.toString();
                       await saveUserID(userId);
                       await FindTeamName();
                       updateOnDatabase(user!);
