@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:makeathon5_app/SharedPreferences.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+
+String TeamName = 'Error';
+
+loadTeamName() async {
+  String temp = await getTeamName();
+  TeamName = temp;
+}
 
 class BottomHelpScreen extends StatefulWidget {
   @override
@@ -6,6 +15,11 @@ class BottomHelpScreen extends StatefulWidget {
 }
 
 class _BottomHelpScreenState extends State<BottomHelpScreen> {
+  @override
+  void initState() {
+    loadTeamName();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,10 +29,14 @@ class _BottomHelpScreenState extends State<BottomHelpScreen> {
         ),
         Container(
           height: 400,
-          child: Text(
-            textAlign: TextAlign.center,
-            "Participants will be able to ask for mentors from here ",
-            style: TextStyle(fontSize: 24),
+          child: Column(
+            children: [
+              QrImage(
+                data: "$TeamName",
+                version: QrVersions.auto,
+                size: 200.0,
+              ),
+            ],
           ),
         ),
       ],
