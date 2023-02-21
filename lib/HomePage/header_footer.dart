@@ -76,7 +76,10 @@ class _HeaderFooterState extends State<HeaderFooter> {
                     CircleAvatar(
                       radius: 2.2 * height / 12,
                       backgroundImage: NetworkImage(
-                        '${FirebaseAuth.instance.currentUser!.providerData[0].photoURL}',
+                        FirebaseAuth.instance.currentUser == null
+                            ? ""
+                            : FirebaseAuth.instance.currentUser!.providerData[0]
+                                .photoURL!,
                       ),
                     ),
                     SizedBox(
@@ -86,7 +89,7 @@ class _HeaderFooterState extends State<HeaderFooter> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Hello, ${FirebaseAuth.instance.currentUser!.providerData[0].displayName!.split(" ")[0]}',
+                          'Hello, ${FirebaseAuth.instance.currentUser == null ? "" : FirebaseAuth.instance.currentUser!.providerData[0].displayName!.split(" ")[0]}',
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 24,
@@ -96,7 +99,10 @@ class _HeaderFooterState extends State<HeaderFooter> {
                           height: 7,
                         ),
                         Text(
-                          '${FirebaseAuth.instance.currentUser!.providerData[0].email}',
+                          FirebaseAuth.instance.currentUser == null
+                              ? ""
+                              : FirebaseAuth
+                                  .instance.currentUser!.providerData[0].email!,
                           style: TextStyle(color: Colors.white, fontSize: 15),
                         ),
                         SizedBox(

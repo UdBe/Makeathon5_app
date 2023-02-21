@@ -74,13 +74,14 @@ class SignInButton extends StatelessWidget {
                       await saveUserID(userId);
                       await FindTeamName();
                       updateOnDatabase(user!);
-                      Navigator.push(
+                      Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
                           builder: ((context) {
                             return HomePage();
                           }),
                         ),
+                        (route) => false,
                       );
                     } else {
                       _signOut();
