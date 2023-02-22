@@ -22,13 +22,13 @@ getTeamName() async {
   return TeamName;
 }
 
-SaveCheckIn(String TeamName) async {
+setCheckedIn(bool isCheckedIn) async {
   SharedPreferences pref = await SharedPreferences.getInstance();
-  await pref.setBool("checkin", true);
+  await pref.setBool("isCheckedIn", isCheckedIn);
 }
 
-getCheckin() async {
+Future<bool?> getCheckedin() async {
   SharedPreferences pref = await SharedPreferences.getInstance();
-  var TeamName = await pref.getBool("checkin");
-  return TeamName;
+  var isCheckedIn = await pref.getBool("isCheckedIn");
+  return isCheckedIn;
 }

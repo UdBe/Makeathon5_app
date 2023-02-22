@@ -15,17 +15,14 @@ FindTeamName() async {
       .get()
       .then((value) async {
     Map<String, dynamic> userdetails = value.data() as Map<String, dynamic>;
-    await SaveTeamName(userdetails['Team']);
+    await SaveTeamName(userdetails['Team'] ?? 'null');
     return value;
   });
 }
 
-GoogleSignIn? googleSignIn;
-
 class Authentication {
   Future<UserCredential> signInWithGoogle() async {
-    googleSignIn = GoogleSignIn();
-    final GoogleSignInAccount? googleUser = await googleSignIn!.signIn();
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
     final GoogleSignInAuthentication? googleAuth =
         await googleUser?.authentication;
@@ -71,16 +68,20 @@ class SignInButton extends StatelessWidget {
                   query.get().then((value) async {
                     if (value.docs.isNotEmpty) {
                       String userId = userEmail.toString();
+                      final Map<String, dynamic> data =
+                          value.docs.first.data() as Map<String, dynamic>;
+                      await setCheckedIn(data['Checkin']);
                       await saveUserID(userId);
                       await FindTeamName();
                       updateOnDatabase(user!);
-                      Navigator.push(
+                      Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
                           builder: ((context) {
                             return HomePage();
                           }),
                         ),
+                        (route) => false,
                       );
                     } else {
                       _signOut();
@@ -122,7 +123,7 @@ class SignInButton extends StatelessWidget {
 
   Future<void> _signOut() async {
     await FirebaseAuth.instance.signOut();
-    googleSignIn!.disconnect();
+    GoogleSignIn().disconnect();
     Fluttertoast.showToast(msg: 'Please login with your devfolio email');
   }
 

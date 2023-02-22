@@ -63,24 +63,27 @@ class _TimelinePageState extends State<TimelinePage> {
     );
   }
 
-  Future<void> fetchTimelines() async {
+  fetchTimelines() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
     DatabaseReference timelineRef =
         FirebaseDatabase.instance.ref().child('Timelines');
-    final snapshot = await timelineRef.get();
-    for (var timelineSnapshot in snapshot.children) {
-      Timeline timeline = Timeline(
-        title: timelineSnapshot.child('title').value.toString(),
-        body: timelineSnapshot.child('body').value.toString(),
-        duration: timelineSnapshot.child('duration').value.toString(),
-        formattedDateTime: timelineSnapshot.child('startTime').value.toString(),
-      );
-      timelines.add(timeline);
-    }
-    setState(() {
-      isLoading = false;
+    timelineRef.onValue.listen((event) {
+      timelines = <Timeline>[];
+      for (var timelineSnapshot in event.snapshot.children) {
+        Timeline timeline = Timeline(
+          title: timelineSnapshot.child('title').value.toString(),
+          body: timelineSnapshot.child('body').value.toString(),
+          duration: timelineSnapshot.child('duration').value.toString(),
+          formattedDateTime:
+              timelineSnapshot.child('startTime').value.toString(),
+        );
+        timelines.add(timeline);
+      }
+      setState(() {
+        isLoading = false;
+      });
     });
   }
 }
