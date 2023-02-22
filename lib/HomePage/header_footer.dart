@@ -124,7 +124,10 @@ class _HeaderFooterState extends State<HeaderFooter> {
                     Align(
                       alignment: Alignment.topCenter,
                       child: GestureDetector(
-                        child: Icon(Icons.logout_outlined),
+                        child: Padding(
+                            padding: EdgeInsets.all(4),
+                            child: Icon(Icons.logout_outlined,
+                                color: Colors.white)),
                         onTap: () {
                           userLogout(context);
                         },
