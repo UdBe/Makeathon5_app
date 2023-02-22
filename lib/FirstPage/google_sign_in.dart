@@ -56,6 +56,9 @@ class SignInButton extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(
                     Color.fromARGB(255, 216, 217, 216))),
             onPressed: () {
+              showDialog(context: context, builder: (context){
+                return Center(child: CircularProgressIndicator());
+              });
               Authentication().signInWithGoogle().then(
                 (value) async {
                   User? user = value.user;
