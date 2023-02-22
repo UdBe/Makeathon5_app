@@ -101,7 +101,7 @@ class CenterCardsState extends State<CenterCards> {
                     child: SmallCard(
                       title: 'Timeline',
                       imgPath: "Assets/timeline.png",
-                      subtitle: "Checkpoint 3",
+                      subtitle: "",
                       subtitleColor: Color.fromARGB(255, 48, 147, 98),
                       route: '/Timeline',
                     )),
