@@ -1,32 +1,25 @@
-import 'dart:io';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:makeathon5_app/CheckinPage/checkin_button.dart';
-import 'package:makeathon5_app/CheckinPage/upload_button.dart';
+import 'package:makeathon5_app/CheckinPage/Geofencing.dart';
+import 'package:makeathon5_app/CheckinPage/SwipingCheckinButton.dart';
+import '../SharedPreferences.dart';
 
 class CheckinPage extends StatefulWidget {
+  Function? callback;
   User? user;
+
+  CheckinPage(this.callback);
 
   @override
   _CheckinPageState createState() => _CheckinPageState();
 }
 
-void checkinUser() {
-  File certificate = UploadButton.file!;
-  //TODO: Implement checkin and upload cert to databse
-}
-
 class _CheckinPageState extends State<CheckinPage> {
-  bool isEnabled = false;
+  bool ischecked = false;
+
   @override
   Widget build(BuildContext context) {
-    void changeState(bool isEnabled) {
-      setState(() {
-        this.isEnabled = isEnabled;
-      });
-    }
-
     return Scaffold(
       body: Stack(
         children: [
@@ -42,6 +35,7 @@ class _CheckinPageState extends State<CheckinPage> {
                 child: Image.asset(
                   'Assets/vector7.png',
                   width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height / 5,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -60,7 +54,7 @@ class _CheckinPageState extends State<CheckinPage> {
                   Spacer(),
                   Container(
                     transform: Matrix4.translationValues(
-                        0, -MediaQuery.of(context).size.height / 50, 0),
+                        0, -MediaQuery.of(context).size.height / 20, 0),
                     child: Image.asset('Assets/vector.png'),
                   ),
                 ],
@@ -74,10 +68,6 @@ class _CheckinPageState extends State<CheckinPage> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      'Assets/back_arrow.png',
-                      scale: 1.25,
-                    ),
                     Spacer(),
                     Image.asset(
                       'Assets/MLSClogo.png',
@@ -93,11 +83,30 @@ class _CheckinPageState extends State<CheckinPage> {
             child: Column(
               children: [
                 Spacer(),
-                UploadButton(changeState),
+                Row(
+                  children: [
+                    Checkbox(
+                        value: ischecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            ischecked = value!;
+                          });
+                          ;
+                        }),
+                    Flexible(
+                      child: Text(
+                        "Me tumhari saari shartein maanta/maanti hu",
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
                 SizedBox(
                   height: 60,
                 ),
-                CheckinButton(isEnabled)
+                SwipingCheckInButton(ischecked, widget.callback)
               ],
             ),
           ),

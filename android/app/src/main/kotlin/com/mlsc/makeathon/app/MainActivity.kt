@@ -1,4 +1,4 @@
-package com.example.makeathon5_app
+package com.mlsc.makeathon.app
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -33,7 +33,6 @@ dependencies:
     sdk: flutter
   firebase_core: ^2.4.1  
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -44,10 +43,30 @@ dependencies:
   google_sign_in: ^5.4.3
   fluttertoast: ^8.1.2
   file_picker: ^5.2.5
+  firebase_messaging: ^14.2.1
+  url_launcher: ^6.1.8
+  device_apps: ^2.2.0
+  flutter_automation: ^2.0.0
+  permission_handler: any
+  geolocator: ^9.0.2
+  cloud_firestore: ^4.4.0
+  swipebuttonflutter: ^1.0.0
+  flutter_swipe_button: ^2.1.1+1
+  shared_preferences: ^2.0.17
+  qr_flutter: ^4.0.0
+
+
+uses-material-design: true
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.11.0
+flutter_icons:  
+  android: "launcher_icon"
+  ios: true
+  image_path: "Assets/MLSClogo.png"
+  min_sdk_android: 21  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

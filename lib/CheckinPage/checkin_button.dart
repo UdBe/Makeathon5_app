@@ -15,7 +15,7 @@ class CheckinButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: isEnabled
           ? () {
-              checkinUser();
+              //checkinUser(context);
             }
           : null,
       style: ElevatedButton.styleFrom(
