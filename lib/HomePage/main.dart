@@ -1,7 +1,6 @@
 // ignore_for_file: camel_case_types
 import 'package:flutter/material.dart';
 import 'package:makeathon5_app/AnnouncementsPage/main.dart';
-import 'package:makeathon5_app/CheckinPage/main.dart';
 import 'package:makeathon5_app/HomePage/ModalScreen.dart';
 import 'package:makeathon5_app/HomePage/center_cards.dart';
 import 'package:makeathon5_app/HomePage/header_footer.dart';
@@ -41,7 +40,7 @@ class HomePage extends StatelessWidget {
               HelpScreen(context);
             },
             child: const Icon(
-              Icons.notifications_active,
+              Icons.qr_code_rounded,
               size: 40,
             ),
           ),
