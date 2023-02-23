@@ -3,7 +3,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:makeathon5_app/FirstPage/google_sign_in.dart';
 import 'package:makeathon5_app/FirstPage/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -124,7 +123,10 @@ class _HeaderFooterState extends State<HeaderFooter> {
                     Align(
                       alignment: Alignment.topCenter,
                       child: GestureDetector(
-                        child: Icon(Icons.logout_outlined),
+                        child: Icon(
+                          Icons.logout_outlined,
+                          color: Colors.white,
+                        ),
                         onTap: () {
                           userLogout(context);
                         },

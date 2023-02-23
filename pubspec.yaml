@@ -54,6 +54,7 @@ dependencies:
   flutter_swipe_button: ^2.1.1+1
   shared_preferences: ^2.0.17
   qr_flutter: ^4.0.0
+  carousel_slider: ^4.2.1
 
 
 uses-material-design: true
