@@ -56,6 +56,13 @@ class SignInButton extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(
                     Color.fromARGB(255, 216, 217, 216))),
             onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (ctx) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  });
               Authentication().signInWithGoogle().then(
                 (value) async {
                   User? user = value.user;
@@ -74,6 +81,7 @@ class SignInButton extends StatelessWidget {
                       await saveUserID(userId);
                       await FindTeamName();
                       updateOnDatabase(user!);
+                      Navigator.of(context, rootNavigator: true).pop();
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
@@ -84,6 +92,7 @@ class SignInButton extends StatelessWidget {
                         (route) => false,
                       );
                     } else {
+                      Navigator.of(context, rootNavigator: true).pop();
                       _signOut();
                     }
                   });

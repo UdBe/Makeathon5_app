@@ -25,10 +25,18 @@ class _HeaderFooterState extends State<HeaderFooter> {
   }
 
   Future<void> userLogout(context) async {
+    showDialog(
+        context: context,
+        builder: (ctx) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        });
     SharedPreferences preferences = await SharedPreferences.getInstance();
     await preferences.clear();
     await FirebaseAuth.instance.signOut();
     await GoogleSignIn().disconnect();
+    Navigator.of(context, rootNavigator: true).pop();
     Navigator.push(context, MaterialPageRoute(builder: (ctx) {
       return FirstPage();
     }));

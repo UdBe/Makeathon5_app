@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swipe_button/flutter_swipe_button.dart';
-import 'package:makeathon5_app/CheckinPage/main.dart';
 
 import '../SharedPreferences.dart';
 import 'Geofencing.dart';
@@ -21,6 +20,13 @@ class SwipingCheckInButton extends StatelessWidget {
   }
 
   void checkinUser(context) async {
+    showDialog(
+        context: context,
+        builder: (_) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        });
     double distance = await geofenceUser(context);
     if (distance < 1000.00) {
       DocumentReference doc = await FirebaseFirestore.instance
@@ -34,11 +40,14 @@ class SwipingCheckInButton extends StatelessWidget {
           content: Text("Check-In Successful!"),
         ),
       );
+      Navigator.of(context, rootNavigator: true).pop();
       Navigator.pop(context);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content:
               Text("Please reach the offline location before checking-in")));
+      Navigator.of(context, rootNavigator: true).pop();
+      Navigator.pop(context);
     }
   }
 
