@@ -4,20 +4,25 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 String TeamName = 'Error';
 
-loadTeamName() async {
-  String temp = await getTeamName();
-  TeamName = temp;
-}
-
 class BottomHelpScreen extends StatefulWidget {
   @override
   State<BottomHelpScreen> createState() => _BottomHelpScreenState();
 }
 
 class _BottomHelpScreenState extends State<BottomHelpScreen> {
+  loadTeamName() async {
+    String teamname = await getTeamName() ?? "";
+    TeamName = teamname;
+    setState(() {});
+    return TeamName;
+  }
+
   @override
   void initState() {
     loadTeamName();
+    Future.delayed(Duration(milliseconds: 1000), () {
+      loadTeamName();
+    });
   }
 
   @override
@@ -37,32 +42,35 @@ class _BottomHelpScreenState extends State<BottomHelpScreen> {
           topRight: Radius.circular(22),
         ),
       ),
-      height: MediaQuery.of(context).size.height / 2,
+      height: MediaQuery.of(context).size.height / 2.2,
       child: Column(
         children: [
-          Container(
-            padding: EdgeInsets.only(top: 8),
-            alignment: Alignment.center,
-            child: SizedBox(
-              height: 5,
-              width: 100,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(25),
-                  ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.only(
+                    right: MediaQuery.of(context).size.width / 45,
+                    top: MediaQuery.of(context).size.height / 75),
+                alignment: Alignment.topRight,
+                child: IconButton(
+                  icon: Icon(Icons.close),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
                 ),
               ),
-            ),
+            ],
           ),
-          Spacer(),
+          SizedBox(
+            height: MediaQuery.of(context).size.height / 20,
+          ),
           QrImage(
             data: "$TeamName",
             version: QrVersions.auto,
             size: 200.0,
           ),
-          Spacer(),
         ],
       ),
     );

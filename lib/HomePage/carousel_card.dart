@@ -12,14 +12,13 @@ class carouselCard extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width,
         child: Card(
-          
           margin: EdgeInsets.all(MediaQuery.of(context).size.width / 75),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           elevation: 5,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Image(fit: BoxFit.fitHeight, image: img1),
+            child: Image(fit: BoxFit.fill, image: img1),
           ),
         ),
       ),

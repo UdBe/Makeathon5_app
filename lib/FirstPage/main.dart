@@ -53,23 +53,23 @@ class _FirstPageState extends State<FirstPage> {
                     margin: EdgeInsets.only(left: 8),
                     alignment: AlignmentDirectional.topStart,
                     child: Text(
-                      'Lorem Ipsem',
+                      'Welcome to Makeathon5!',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.bold,
-                        fontSize: 22,
+                        fontSize: 24,
                         color: Colors.white,
                       ),
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 15, left: 8),
+                    margin: EdgeInsets.only(top: 8, left: 8),
                     alignment: AlignmentDirectional.topStart,
                     child: Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                      'Use your Devfolio Email ID to sign into the app',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        fontSize: 15,
+                        fontSize: 17,
                         color: Colors.white,
                       ),
                     ),

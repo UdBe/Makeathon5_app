@@ -80,11 +80,13 @@ class CenterCardsState extends State<CenterCards> {
                   viewportFraction: 1,
                   height: MediaQuery.of(context).size.height / 4),
               items: [
-                carouselCard(AssetImage("Assets/carousel1.png")),
-                carouselCard(AssetImage("Assets/carousel1.png")),
-                carouselCard(AssetImage("Assets/carousel1.png")),
-                carouselCard(AssetImage("Assets/carousel1.png")),
-                carouselCard(AssetImage("Assets/carousel1.png"))
+                carouselCard(AssetImage("Assets/9.jpeg")),
+                carouselCard(AssetImage("Assets/besthack.jpeg")),
+                carouselCard(AssetImage("Assets/1strunnerup.jpeg")),
+                carouselCard(AssetImage("Assets/2ndrunnerup.jpeg")),
+                carouselCard(AssetImage("Assets/best1styear.jpeg")),
+                carouselCard(AssetImage("Assets/mostinnovative.jpeg")),
+                carouselCard(AssetImage("Assets/mystery.jpeg"))
               ].map((i) {
                 return Builder(
                   builder: (BuildContext context) {

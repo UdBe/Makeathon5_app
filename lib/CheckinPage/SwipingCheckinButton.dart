@@ -24,11 +24,14 @@ class SwipingCheckInButton extends StatelessWidget {
         context: context,
         builder: (_) {
           return Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: Color.fromRGBO(34, 99, 192, 1.000),
+            ),
           );
         });
     double distance = await geofenceUser(context);
-    if (distance < 1000.00) {
+    print("DISTANCE +  = $distance");
+    if (distance < 250.00) {
       DocumentReference doc = await FirebaseFirestore.instance
           .collection('users')
           .doc(await getUserID());

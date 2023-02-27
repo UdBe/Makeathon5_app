@@ -29,7 +29,9 @@ class _HeaderFooterState extends State<HeaderFooter> {
         context: context,
         builder: (ctx) {
           return Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: Color.fromRGBO(34, 99, 192, 1.000),
+            ),
           );
         });
     SharedPreferences preferences = await SharedPreferences.getInstance();

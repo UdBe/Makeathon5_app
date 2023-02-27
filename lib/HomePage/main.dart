@@ -6,11 +6,22 @@ import 'package:makeathon5_app/HomePage/center_cards.dart';
 import 'package:makeathon5_app/HomePage/header_footer.dart';
 import 'package:makeathon5_app/TimelinePage/main.dart';
 
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
 HelpScreen(context) {
-  showModalBottomSheet(
+  var sheetController = scaffoldKey.currentState!
+      .showBottomSheet((context) => BottomHelpScreen());
+  sheetController.closed.then((value) {
+    print("closed");
+  });
+}
+
+HelpScreen2(context) {
+  return showBottomSheet(
       context: context,
+      enableDrag: true,
       backgroundColor: Colors.transparent,
-      builder: (_) {
+      builder: (context) {
         return BottomHelpScreen();
       });
 }
@@ -25,6 +36,7 @@ class HomePage extends StatelessWidget {
         '/Timeline': (context) => TimelinePage()
       },
       home: Scaffold(
+        key: scaffoldKey,
         body: SafeArea(
           child: Stack(
             children: [CenterCards(), HeaderFooter()],

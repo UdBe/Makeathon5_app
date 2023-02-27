@@ -95,7 +95,7 @@ class _CheckinPageState extends State<CheckinPage> {
                         }),
                     Flexible(
                       child: Text(
-                        "Me tumhari saari shartein maanta/maanti hu",
+                        "I agree to abide by the Code of Conduct during the entire Hackathon",
                         style: TextStyle(
                           fontSize: 20,
                         ),

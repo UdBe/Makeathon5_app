@@ -60,7 +60,9 @@ class SignInButton extends StatelessWidget {
                   context: context,
                   builder: (ctx) {
                     return Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator(
+                        color: Color.fromRGBO(34, 99, 192, 1.000),
+                      ),
                     );
                   });
               Authentication().signInWithGoogle().then(
